@@ -1,0 +1,56 @@
+[Core] Msg: Using 'DefaultAssemblyLoader' to load plugins.
+[Core] Msg: Environment Info:
+              Current Directory: C:\Dev\duality\Build\Output
+              Command Line: "C:\Dev\duality\Build\Output\DualityEditor.exe" 
+              Operating System: Windows 8 or higher (Microsoft Windows NT 6.2.9200.0)
+              64 Bit OS: True
+              64 Bit Process: True
+              CLR Version: 4.0.30319.42000
+              Processor Count: 4
+              Processor Type: Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+              Processor Architecture: AMD64
+[Core] Msg: Currently Loaded Assemblies:
+              mscorlib 4.0.0.0
+              DualityEditor 2.10.10.0
+              System.Windows.Forms 4.0.0.0
+              System 4.0.0.0
+              System.Drawing 4.0.0.0
+              Duality 2.14.8.0
+              netstandard 2.0.0.0
+              NuGet.Core 2.14.0.832
+              System.Core 4.0.0.0
+              System.Xml.Linq 4.0.0.0
+              System.Xml 4.0.0.0
+              WindowsBase 4.0.0.0
+              System.Configuration 4.0.0.0
+              DualityPrimitives 2.0.6.0
+              Accessibility 4.0.0.0
+              AdamsLair.WinForms 1.1.17.0
+              WeifenLuo.WinFormsUI.Docking 2.8.2.0
+[Core] Msg: Plugin Base Directories:
+              Plugins
+[Core] Msg: Available Assembly Paths:
+              Plugins\CamView.editor.dll
+              Plugins\Compatibility.core.dll
+              Plugins\DefaultOpenTKBackend.core.dll
+              Plugins\DefaultOpenTKBackend.editor.dll
+              Plugins\DotNetFrameworkBackend.core.dll
+              Plugins\EditorBase.editor.dll
+              Plugins\HelpAdvisor.editor.dll
+              Plugins\LogView.editor.dll
+              Plugins\ObjectInspector.editor.dll
+              Plugins\OpenALSoft32.dll
+              Plugins\OpenALSoft64.dll
+              Plugins\PackageManagerFrontend.editor.dll
+              Plugins\ProjectView.editor.dll
+              Plugins\SceneView.editor.dll
+              Plugins\Tilemaps.core.dll
+              Plugins\Tilemaps.editor.dll
+[Core] Msg: Scanning for core plugins...
+[Core] Msg:   Plugins\Compatibility.core.dll...
+[Core] Msg:     Assembly loaded: Compatibility.Core 2.0.2.0
+[Core] Msg:     Assembly loaded: Anonymously Hosted DynamicMethods Assembly 0.0.0.0
+[Core] Msg:   Plugins\DefaultOpenTKBackend.core.dll...
+[Core] Msg:     Assembly loaded: DefaultOpenTKBackend.core 2.0.21.0
+[Core] Msg:     Assembly loaded: OpenTK 1.2.2.0
+[Core] Msg:   Plugins\DotNetFrameworkBackend.core.dll...

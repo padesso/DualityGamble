@@ -1,0 +1,221 @@
+[Core] Msg: Using 'DefaultAssemblyLoader' to load plugins.
+[Core] Msg: Environment Info:
+              Current Directory: C:\Dev\duality\Build\Output
+              Command Line: "C:\Dev\duality\Build\Output\DualityEditor.exe" 
+              Operating System: Windows 8 or higher (Microsoft Windows NT 6.2.9200.0)
+              64 Bit OS: True
+              64 Bit Process: True
+              CLR Version: 4.0.30319.42000
+              Processor Count: 4
+              Processor Type: Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+              Processor Architecture: AMD64
+[Core] Msg: Currently Loaded Assemblies:
+              mscorlib 4.0.0.0
+              DualityEditor 3.1.9.0
+              System.Windows.Forms 4.0.0.0
+              System 4.0.0.0
+              System.Drawing 4.0.0.0
+              Duality 3.2.0.0
+              System.Runtime 4.0.0.0
+              System.IO 4.0.0.0
+              System.Collections 4.0.0.0
+              System.Threading 4.0.0.0
+              NuGet.Core 2.14.0.832
+              System.Core 4.0.0.0
+              System.Xml.Linq 4.0.0.0
+              System.Xml 4.0.0.0
+              System.Xml.XDocument 4.0.0.0
+              System.Reflection 4.0.0.0
+              System.Xml.ReaderWriter 4.0.0.0
+              WindowsBase 4.0.0.0
+              System.Configuration 4.0.0.0
+              DualityPrimitives 3.0.4.0
+              Accessibility 4.0.0.0
+              AdamsLair.WinForms 1.1.17.0
+              WeifenLuo.WinFormsUI.Docking 2.8.2.0
+              System.Runtime.Extensions 4.0.0.0
+              System.Diagnostics.Debug 4.0.0.0
+              System.Linq 4.0.0.0
+              System.Globalization 4.0.0.0
+[Core] Msg: Plugin Base Directories:
+              Plugins
+[Core] Msg: Available Assembly Paths:
+              Plugins\CamView.editor.dll
+              Plugins\Compatibility.core.dll
+              Plugins\DefaultOpenTKBackend.core.dll
+              Plugins\DefaultOpenTKBackend.editor.dll
+              Plugins\DotNetFrameworkBackend.core.dll
+              Plugins\EditorBase.editor.dll
+              Plugins\HelpAdvisor.editor.dll
+              Plugins\LogView.editor.dll
+              Plugins\ObjectInspector.editor.dll
+              Plugins\OpenALSoft32.dll
+              Plugins\OpenALSoft64.dll
+              Plugins\PackageManagerFrontend.editor.dll
+              Plugins\ProjectView.editor.dll
+              Plugins\SceneView.editor.dll
+              Plugins\Tilemaps.core.dll
+              Plugins\Tilemaps.editor.dll
+[Core] Msg: Scanning for core plugins...
+[Core] Msg:   Plugins\Compatibility.core.dll...
+[Core] Msg:     Assembly loaded: Compatibility.core 3.0.4.0
+[Core] Msg:     Assembly loaded: System.Linq.Expressions 4.0.0.0
+[Core] Msg:     Assembly loaded: Anonymously Hosted DynamicMethods Assembly 0.0.0.0
+[Core] Msg:   Plugins\DefaultOpenTKBackend.core.dll...
+[Core] Msg:     Assembly loaded: DefaultOpenTKBackend.core 3.2.0.0
+[Core] Msg:     Assembly loaded: OpenTK 1.2.2.0
+[Core] Msg:   Plugins\DotNetFrameworkBackend.core.dll...
+[Core] Msg:     Assembly loaded: DotNetFrameworkBackend.core 3.0.4.0
+[Core] Msg:   Plugins\Tilemaps.core.dll...
+[Core] Msg:     Assembly loaded: Tilemaps.core 2.1.3.0
+[Core] Msg: Loading auxiliary libraries...
+[Core] Msg: Initializing ISystemBackend...
+[Core] Msg:   Assembly loaded: System.Runtime.InteropServices 4.0.0.0
+[Core] Msg:   Assembly loaded: System.Text.RegularExpressions 4.0.0.0
+[Core] Msg:   .Net Framework...
+[Core] Msg: Assembly loaded: System.Text.Encoding 4.0.0.0
+[Core] Msg: Assembly loaded: System.Reflection.Extensions 4.0.0.0
+[Core] Msg: Initializing IGraphicsBackend...
+[Core] Msg:   OpenGL 2.1 (OpenTK)...
+[Core] Msg:     Initializing OpenTK...
+[Core] Msg:       Platform Backend: PreferNative
+                  EnableHighResolution: False
+[Core] Msg:     Detected new Gamepad Input: "Gamepad 0" (03000000-5e04-0000-cd07-000000000000 | Unmapped Controller) at index 0
+[Core] Msg:     Detected new Gamepad Input: "Gamepad 1" (03000000-961b-0000-060f-000000000000 | Unmapped Controller) at index 1
+[Core] Msg:     Detected new Gamepad Input: "Gamepad 2" (03000000-961b-0000-060f-000000000000 | Unmapped Controller) at index 2
+[Core] Msg:     Detected new Joystick Input: "Joystick 0" (03000000-5e04-0000-cd07-000000000000 | Joystick) at index 0
+                Capabilities: 10 axes, 1 buttons, 0 hats
+[Core] Msg:     Detected new Joystick Input: "Joystick 1" (03000000-961b-0000-060f-000000000000 | Joystick) at index 1
+                Capabilities: 2 axes, 0 buttons, 0 hats
+[Core] Msg:     Detected new Joystick Input: "Joystick 2" (03000000-961b-0000-060f-000000000000 | Joystick) at index 2
+                Capabilities: 2 axes, 0 buttons, 0 hats
+[Core] Msg:     Available display devices:
+[Core] Msg:       First : 3000x2000 at  60 Hz, 32 bpp, pos [-3000,-1199]
+[Core] Msg:       Second: 1920x1200 at  59 Hz, 32 bpp, pos [   0,   0] (Primary)
+[Core] Msg:       Third : 1200x1920 at  59 Hz, 32 bpp, pos [1920,-489]
+[Core] Msg:     Available graphics modes:
+[Core] Msg:       Index: , Color: 32 (8888), Depth: 24, Stencil: 0, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg:       Index: , Color: 32 (8888), Depth: 24, Stencil: 0, Samples: 2, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg:       Index: , Color: 32 (8888), Depth: 24, Stencil: 0, Samples: 4, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg:       Index: , Color: 32 (8888), Depth: 24, Stencil: 0, Samples: 6, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg:       Index: , Color: 32 (8888), Depth: 24, Stencil: 0, Samples: 8, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg:       Index: , Color: 32 (8888), Depth: 24, Stencil: 0, Samples: 16, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg:     Duality default graphics mode: Index: , Color: 32 (8888), Depth: 24, Stencil: 0, Samples: 16, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg:     OpenTK default graphics mode: Index: , Color: 32 (8888), Depth: 16, Stencil: 0, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+[Core] Msg: Initializing IAudioBackend...
+[Core] Msg:   OpenAL (OpenTK)...
+[Core] Msg:     OpenAL Drivers not found. Using 64 Bit software fallback.
+[Core] Msg:     Available devices:
+                  Headphones (Realtek High Definition Audio(SST)) (Default)
+                  Speakers (Realtek High Definition Audio(SST))
+[Core] Msg:     Current device: OpenAL Soft
+[Core] Msg:     OpenAL Version: 1.1 ALSOFT 1.15.1
+                Vendor: OpenAL Community
+                Renderer: OpenAL Soft
+                Effects: True
+[Core] Msg:     256 sources available
+[Core] Msg: Initializing core plugins...
+[Core] Msg:   Compatibility.core...
+[Edit] Msg:     Analyzing Core Plugin: Compatibility.core
+[Core] Msg:   DefaultOpenTKBackend.core...
+[Edit] Msg:     Analyzing Core Plugin: DefaultOpenTKBackend.core
+[Core] Msg:   DotNetFrameworkBackend.core...
+[Edit] Msg:     Analyzing Core Plugin: DotNetFrameworkBackend.core
+[Core] Msg:   Tilemaps.core...
+[Edit] Msg:     Analyzing Core Plugin: Tilemaps.core
+[Core] Msg: DualityApp initialized
+            Debug Mode: False
+            Command line arguments: null
+[Edit] Msg: Scanning for editor plugins...
+[Edit] Msg:   Plugins\CamView.editor.dll...
+[Core] Msg:     Assembly loaded: CamView.editor 3.0.4.0
+[Edit] Msg:   Plugins\DefaultOpenTKBackend.editor.dll...
+[Core] Msg:     Assembly loaded: DefaultOpenTKBackend.editor 3.1.3.0
+[Edit] Msg:   Plugins\EditorBase.editor.dll...
+[Core] Msg:     Assembly loaded: EditorBase.editor 3.0.4.0
+[Core] Msg:     Assembly loaded: PopupControl 1.0.1.0
+[Edit] Msg:   Plugins\HelpAdvisor.editor.dll...
+[Core] Msg:     Assembly loaded: HelpAdvisor.editor 3.0.4.0
+[Edit] Msg:   Plugins\LogView.editor.dll...
+[Core] Msg:     Assembly loaded: LogView.editor 3.0.5.0
+[Edit] Msg:   Plugins\ObjectInspector.editor.dll...
+[Core] Msg:     Assembly loaded: ObjectInspector.editor 3.0.5.0
+[Edit] Msg:   Plugins\PackageManagerFrontend.editor.dll...
+[Core] Msg:     Assembly loaded: PackageManagerFrontend.editor 3.0.5.0
+[Core] Msg:     Assembly loaded: Aga.Controls 1.7.7.0
+[Edit] Msg:   Plugins\ProjectView.editor.dll...
+[Core] Msg:     Assembly loaded: ProjectView.editor 3.0.5.0
+[Edit] Msg:   Plugins\SceneView.editor.dll...
+[Core] Msg:     Assembly loaded: SceneView.editor 3.0.4.0
+[Edit] Msg:   Plugins\Tilemaps.editor.dll...
+[Core] Msg:     Assembly loaded: Tilemaps.editor 2.1.3.0
+[Core] Msg: Initializing IEditorGraphicsBackend...
+[Core] Msg:   GLControl (OpenTK)...
+[Edit] Msg: Creating editor graphics context...
+[Core] Msg:   Assembly loaded: OpenTK.GLControl 1.2.2.0
+[Core] Msg:   Context specs: 
+                Buffers: 2
+                Samples: 16
+                ColorFormat: 32 (8888)
+                AccumFormat: 64 (16161616)
+                Depth: 24
+                Stencil: 8
+                SwapInterval: 0
+[Core] Msg:   Graphics backend capabilities:
+                OpenGL Version: '3.0.0 - Build 20.19.15.4463', i.e. 3.0.0
+                Vendor: Intel
+                Renderer: Intel(R) HD Graphics 520
+                GLSL Version: '1.30 - Build 20.19.15.4463', i.e. 1.30
+                API Version: 1.30
+                Max Texture Size: 16384
+                Max Texture Bindings: 32
+                Max RenderTarget Size: 16384
+[Core] Msg: Initializing default content...
+[Core] Msg:   Assembly loaded: System.Collections.Concurrent 4.0.0.0
+[Core] Msg:   Assembly loaded: System.Threading.Tasks.Parallel 4.0.0.0
+[Core] Msg:   Assembly loaded: System.IO.Compression 4.0.0.0
+[Core] Msg:   Assembly loaded: NVorbis 0.7.6.0
+[Core] Msg:   ...done!
+[Edit] Msg: Loading user data...
+[Edit] Msg:   Loading DockPanel data...
+[Edit] Msg:     Deserializing layout: 'Duality.Editor.Plugins.CamView.CamView'
+[Edit] Msg:     Deserializing layout: 'Duality.Editor.Plugins.ProjectView.ProjectFolderView'
+[Edit] Msg:     Deserializing layout: 'Duality.Editor.Plugins.SceneView.SceneView'
+[Edit] Msg:     Deserializing layout: 'Duality.Editor.Plugins.ObjectInspector.ObjectInspector'
+[Edit] Msg:     Deserializing layout: 'Duality.Editor.Plugins.HelpAdvisor.HelpAdvisor'
+[Edit] Msg:     Deserializing layout: 'Duality.Editor.Plugins.LogView.LogView'
+[Edit] Msg:   Loading editor user data...
+[Edit] Msg: Initializing editor plugins...
+[Edit] Msg:   CamView.editor...
+[Edit] Msg:   DefaultOpenTKBackend.editor...
+[Edit] Msg:   EditorBase.editor...
+[Edit] Msg:   HelpAdvisor.editor...
+[Edit] Msg:   LogView.editor...
+[Edit] Msg:   ObjectInspector.editor...
+[Edit] Msg:   PackageManagerFrontend.editor...
+[Edit] Msg:   ProjectView.editor...
+[Edit] Msg:   SceneView.editor...
+[Edit] Msg:   Tilemaps.editor...
+[Core] Msg: Assembly loaded: DualityPhysics 3.0.4.0
+[Core] Msg: Assembly loaded: System.Security 4.0.0.0
+[Core] Msg: Assembly loaded: System.ComponentModel.DataAnnotations 4.0.0.0
+[Core] Msg: Assembly loaded: System.Data.SqlXml 4.0.0.0
+[Core] Msg: Assembly loaded: System.Xaml 4.0.0.0
+[Core] Msg: Assembly loaded: System.Design 4.0.0.0
+[Core] Msg: Determining OpenGL rendering capabilities...
+[Core] Msg: Compiling DrawTechnique 'Default\DrawTechnique\Alpha'...
+[Core] Msg:   Compiling Vertex shader 'Default\VertexShader\Minimal'...
+[Core] Msg:   Compiling Fragment shader 'Default\FragmentShader\Minimal'...
+[Core] Msg: Compiling DrawTechnique 'Default\DrawTechnique\Mask'...
+[Core] Wrn: Can't resolve Assembly 'Microsoft.Build, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a': None of the available assembly paths matches the requested name.
+[Edit] ERR: An error occurred while attempting to build a VS solution file: FileNotFoundException: Could not load file or assembly 'Microsoft.Build, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+            CallStack:
+               at Duality.Editor.BuildHelper._BuildSolutionFile(String solutionFile, String configuration)
+               at Duality.Editor.BuildHelper.BuildSolutionFile(String solutionFile, String configuration) in C:\Dev\duality\Source\Editor\DualityEditor\Utility\BuildHelper.cs:line 16
+            This error usually means the binding redirect from the old .Net 4.0 MsBuild to the new Visual Studio MsBuild failed. To fix this, upgrade to any version of Visual Studio 2013.
+[Edit] Msg: Saving user data...
+[Core] Msg: Shutting down GLControl (OpenTK)...
+[Core] Msg: Shutting down OpenGL 2.1 (OpenTK)...
+[Core] Msg: Shutting down OpenAL (OpenTK)...
+[Core] Msg: Shutting down .Net Framework...
+[Core] Msg: DualityApp terminated
