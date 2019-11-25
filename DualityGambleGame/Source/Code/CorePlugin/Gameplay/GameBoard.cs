@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Duality;
+using DualityGambleGame.State;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -60,6 +62,11 @@ namespace DualityGambleGame.Gameplay
         public GameTile GetTile(int x, int y)
         {
             return this.boardArray[x, y];
+        }
+
+        public void TryMove(Vector2 vector2, int playerNumber)
+        {
+            Debug.WriteLine("Attempting move for player : " + playerNumber + " : " + vector2.ToString());
         }
 
         public int Width()

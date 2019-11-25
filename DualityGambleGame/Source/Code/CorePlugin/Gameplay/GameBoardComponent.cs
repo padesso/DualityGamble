@@ -29,35 +29,30 @@ namespace DualityGambleGame.Gameplay
             this.transform = GameObj.GetComponent<Transform>();
             this.gameBoard = new GameBoard();
 
-            StateMachine.SetGameState(StateMachine.GameState.WaitingInput);
+            StateMachine.SetGameState(StateMachine.GameState.WaitingPlayerInput);
         }
 
         public void OnUpdate()
         {
             //Input
-            if(DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Left))
+            if (StateMachine.CurrentState == StateMachine.GameState.WaitingPlayerInput)
             {
-                TryMove(new Vector2(-1,0));
-            }
-            else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
-            {
-                TryMove(new Vector2(1, 0));
-            }
-            else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
-            {
-                TryMove(new Vector2(0, 1));
-            }
-            else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
-            {
-                TryMove(new Vector2(0, -1));
-            }
-        }
-
-        private void TryMove(Vector2 vector2)
-        {
-            if (StateMachine.CurrentState == StateMachine.GameState.WaitingInput)
-            {
-                Debug.WriteLine("Pressed: " + vector2.ToString());
+                if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Left))
+                {
+                    this.gameBoard.TryMove(new Vector2(-1, 0), 1);
+                }
+                else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
+                {
+                    this.gameBoard.TryMove(new Vector2(1, 0), 1);
+                }
+                else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
+                {
+                    this.gameBoard.TryMove(new Vector2(0, 1), 1);
+                }
+                else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
+                {
+                    this.gameBoard.TryMove(new Vector2(0, -1), 1);
+                }
             }
         }
 

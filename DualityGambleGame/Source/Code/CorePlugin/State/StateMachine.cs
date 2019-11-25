@@ -12,8 +12,7 @@ namespace DualityGambleGame.State
         {
             Loading,
             GeneratingCoins,
-            WaitingInput,
-            AllPlayersInput,
+            WaitingPlayerInput,
             ShowResults
         };
 
