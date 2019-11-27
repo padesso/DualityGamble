@@ -179,11 +179,13 @@ namespace DualityGambleGame.Gameplay
 
         public void Draw(IDrawDevice device)
         {
-            //Draw the game board...  debug for now
+            //Draw the game board...  
+            //Vector2 screenCenter = this.ca
 
+
+            //debug for now
             if (DebugMode)
             {
-
                 // Prepare the Canvas for rendering to the target device
                 this.canvas.Begin(device);
 
