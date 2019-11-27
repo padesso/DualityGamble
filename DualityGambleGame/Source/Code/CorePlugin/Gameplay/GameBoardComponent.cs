@@ -20,12 +20,16 @@ namespace DualityGambleGame.Gameplay
         [DontSerialize]
         private GameBoard gameBoard;
 
+        [DontSerialize]
+        private TextRenderer debugTextRenderer;
+
         Transform transform;
 
         private bool debugMode;
 
         public void OnActivate()
         {
+            this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
             this.gameBoard = new GameBoard();
 
@@ -34,25 +38,34 @@ namespace DualityGambleGame.Gameplay
 
         public void OnUpdate()
         {
+            debugTextRenderer.Text = new FormattedText("Game state: " + StateMachine.CurrentState.ToString());
             //Input
             if (StateMachine.CurrentState == StateMachine.GameState.WaitingPlayerInput)
             {
                 if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Left))
                 {
-                    this.gameBoard.TryMove(new Vector2(-1, 0), 1);
+                    if (this.gameBoard.TryMove(new Vector2(-1, 0), 1))
+                        StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
                 {
-                    this.gameBoard.TryMove(new Vector2(1, 0), 1);
+                    if(this.gameBoard.TryMove(new Vector2(1, 0), 1))
+                        StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
                 {
-                    this.gameBoard.TryMove(new Vector2(0, 1), 1);
+                    if(this.gameBoard.TryMove(new Vector2(0, 1), 1))
+                        StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
                 {
-                    this.gameBoard.TryMove(new Vector2(0, -1), 1);
-                }
+                    if(this.gameBoard.TryMove(new Vector2(0, -1), 1))
+                        StateMachine.SetGameState(StateMachine.GameState.ShowResults);
+                }                
+            }
+            else if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
+            {
+                //TODO: count down and reset
             }
         }
 

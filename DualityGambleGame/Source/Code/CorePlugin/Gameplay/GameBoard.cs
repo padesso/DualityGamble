@@ -20,12 +20,14 @@ namespace DualityGambleGame.Gameplay
         private const int HEIGHT = 3;
 
         private GameTile[,] boardArray;
+        private GameTile[] targetTiles;
 
         public GameBoard()
         {
             boardArray = new GameTile[WIDTH,HEIGHT];
+            targetTiles = new GameTile[4];
 
-            for(int widthIndex = 0; widthIndex < WIDTH; widthIndex++)
+            for (int widthIndex = 0; widthIndex < WIDTH; widthIndex++)
             {
                 for (int heightIndex = 0; heightIndex < HEIGHT; heightIndex++)
                 {
@@ -64,9 +66,58 @@ namespace DualityGambleGame.Gameplay
             return this.boardArray[x, y];
         }
 
-        public void TryMove(Vector2 vector2, int playerNumber)
+        public bool TryMove(Vector2 moveDirection, int playerNumber)
         {
-            Debug.WriteLine("Attempting move for player : " + playerNumber + " : " + vector2.ToString());
+            Debug.WriteLine("Attempting move for player : " + playerNumber + " : " + moveDirection.ToString());
+
+            switch(playerNumber)
+            {
+                case 1:
+                    if(moveDirection.X < 0)
+                        return false;
+
+                    if (moveDirection.Y < 0)
+                        return false;
+
+                    targetTiles[0] = this.GetTile(0 + (int)moveDirection.X, 0 + (int)moveDirection.Y);                    
+                    break;
+
+                case 2:
+                    if (moveDirection.X > 0)
+                        return false;
+
+                    if (moveDirection.Y < 0)
+                        return false;
+
+                    targetTiles[1] = this.GetTile(2 + (int)moveDirection.X, 0 + (int)moveDirection.Y);
+                    break;
+
+                case 3:
+                    if (moveDirection.X < 0)
+                        return false;
+
+                    if (moveDirection.Y > 0)
+                        return false;
+
+                    targetTiles[2] = this.GetTile(0 + (int)moveDirection.X, 2 + (int)moveDirection.Y);
+                    break;
+
+                case 4:
+                    if (moveDirection.X > 0)
+                        return false;
+
+                    if (moveDirection.Y > 0)
+                        return false;
+
+                    targetTiles[3] = this.GetTile(2 + (int)moveDirection.X, 2 + (int)moveDirection.Y);
+                    break;
+
+                default:
+                    //TODO: nothing I guess...
+                    break;
+            }
+
+            return true;
         }
 
         public int Width()
