@@ -24,6 +24,8 @@ namespace DualityGambleGame.Gameplay
 
         public GameBoard()
         {
+            StateMachine.SetGameState(StateMachine.GameState.GeneratingBoard);
+
             boardArray = new GameTile[WIDTH,HEIGHT];
             targetTiles = new GameTile[4];
 
@@ -113,11 +115,16 @@ namespace DualityGambleGame.Gameplay
                     break;
 
                 default:
-                    //TODO: nothing I guess...
+                    //nothing I guess...
                     break;
             }
 
             return true;
+        }
+
+        public GameTile GetPlayerMove(int playerNumber)
+        {
+            return targetTiles[playerNumber - 1];
         }
 
         public int Width()

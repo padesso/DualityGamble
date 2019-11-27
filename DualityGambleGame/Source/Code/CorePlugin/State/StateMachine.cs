@@ -11,7 +11,7 @@ namespace DualityGambleGame.State
         public enum GameState
         {
             Loading,
-            GeneratingCoins,
+            GeneratingBoard,
             WaitingPlayerInput,
             ShowResults
         };

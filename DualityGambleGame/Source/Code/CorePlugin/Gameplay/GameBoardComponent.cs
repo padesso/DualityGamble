@@ -7,6 +7,7 @@ using Duality;
 using Duality.Components;
 using Duality.Components.Renderers;
 using Duality.Drawing;
+using DualityGambleGame.AI;
 using DualityGambleGame.State;
 
 namespace DualityGambleGame.Gameplay
@@ -21,9 +22,12 @@ namespace DualityGambleGame.Gameplay
         private GameBoard gameBoard;
 
         [DontSerialize]
+        private GameAI gameAI;
+
+        [DontSerialize]
         private TextRenderer debugTextRenderer;
 
-        Transform transform;
+        private Transform transform;
 
         private bool debugMode;
 
@@ -31,7 +35,11 @@ namespace DualityGambleGame.Gameplay
         {
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
+
             this.gameBoard = new GameBoard();
+
+            this.gameAI = new GameAI(this.gameBoard);
+            this.gameAI.DoAI();
 
             StateMachine.SetGameState(StateMachine.GameState.WaitingPlayerInput);
         }
@@ -39,6 +47,7 @@ namespace DualityGambleGame.Gameplay
         public void OnUpdate()
         {
             debugTextRenderer.Text = new FormattedText("Game state: " + StateMachine.CurrentState.ToString());
+
             //Input
             if (StateMachine.CurrentState == StateMachine.GameState.WaitingPlayerInput)
             {
@@ -65,7 +74,11 @@ namespace DualityGambleGame.Gameplay
             }
             else if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
             {
-                //TODO: count down and reset
+                //TODO: compare moves, count down and reset
+                Debug.WriteLine("player 1 move: " + this.gameBoard.GetPlayerMove(1).NumCoins().ToString());
+                Debug.WriteLine("player 2 move: " + this.gameBoard.GetPlayerMove(2).NumCoins().ToString());
+                Debug.WriteLine("player 3 move: " + this.gameBoard.GetPlayerMove(3).NumCoins().ToString());
+                Debug.WriteLine("player 4 move: " + this.gameBoard.GetPlayerMove(4).NumCoins().ToString());
             }
         }
 

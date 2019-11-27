@@ -22,7 +22,7 @@ namespace DualityGambleGame.AI
         //TODO: make this better...
         public void DoAI()
         {
-            for(int playerIndex = 2; playerIndex < 4; playerIndex++)
+            for(int playerIndex = 2; playerIndex <= 4; playerIndex++)
             {
                 if (playerIndex == 2)
                 {
