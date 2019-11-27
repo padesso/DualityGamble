@@ -33,11 +33,11 @@
             <active dataType="Bool">true</active>
             <clearColor dataType="Struct" type="Duality.Drawing.ColorRgba" />
             <farZ dataType="Float">10000</farZ>
-            <focusDist dataType="Float">500</focusDist>
+            <focusDist dataType="Float">1000</focusDist>
             <gameobj dataType="ObjectRef">3929846757</gameobj>
             <nearZ dataType="Float">50</nearZ>
             <priority dataType="Int">0</priority>
-            <projection dataType="Enum" type="Duality.Drawing.ProjectionMode" name="Perspective" value="1" />
+            <projection dataType="Enum" type="Duality.Drawing.ProjectionMode" name="Orthographic" value="0" />
             <renderSetup dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.RenderSetup]]" />
             <renderTarget dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.RenderTarget]]" />
             <shaderParameters dataType="Struct" type="Duality.Drawing.ShaderParameterCollection" id="2024019638" custom="true">
@@ -246,7 +246,7 @@
             <rect dataType="Struct" type="Duality.Rect">
               <H dataType="Float">1024</H>
               <W dataType="Float">1600</W>
-              <X dataType="Float">-512</X>
+              <X dataType="Float">-800</X>
               <Y dataType="Float">-512</Y>
             </rect>
             <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
