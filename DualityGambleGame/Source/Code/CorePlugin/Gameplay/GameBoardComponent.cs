@@ -7,6 +7,7 @@ using Duality;
 using Duality.Components;
 using Duality.Components.Renderers;
 using Duality.Drawing;
+using Duality.Resources;
 using DualityGambleGame.AI;
 using DualityGambleGame.State;
 
@@ -31,8 +32,15 @@ namespace DualityGambleGame.Gameplay
 
         private bool debugMode;
 
+        [DontSerialize]
+        private ContentRef<Material> tileMat;
+
         public void OnActivate()
         {
+            //Preload the game assets
+            this.tileMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "tile").FirstOrDefault();
+            this.tileMat.EnsureLoaded();
+
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
 
