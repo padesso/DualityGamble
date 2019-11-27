@@ -10,9 +10,13 @@ namespace DualityGambleGame.Gameplay
     {        
         private int numCoins;
         private Player player;
+        private int x;
+        private int y;
 
-        public GameTile(int numCoins, Player player)
+        public GameTile(int x, int y,int numCoins, Player player)
         {
+            this.x = x;
+            this.y = y;
             this.numCoins = numCoins;
             this.player = player;
         }

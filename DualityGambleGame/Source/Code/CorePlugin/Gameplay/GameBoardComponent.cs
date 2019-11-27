@@ -35,23 +35,26 @@ namespace DualityGambleGame.Gameplay
         {
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
+                   
+            ResetGame();
+        }
 
+        private void ResetGame()
+        {
             this.gameBoard = new GameBoard();
             this.gameBoard.Init();
 
             this.gameAI = new GameAI(this.gameBoard);
             this.gameAI.DoAI();
-
-            StateMachine.SetGameState(StateMachine.GameState.WaitingPlayerInput);
         }
 
         public void OnUpdate()
         {
-            debugTextRenderer.Text = new FormattedText("Game state: " + StateMachine.CurrentState.ToString());
-
             //Input
             if (StateMachine.CurrentState == StateMachine.GameState.WaitingPlayerInput)
             {
+                debugTextRenderer.Text = new FormattedText("Press a direction key to choose a tile.");
+
                 if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Left))
                 {
                     if (this.gameBoard.TryMove(new Vector2(-1, 0), 1))
@@ -59,27 +62,111 @@ namespace DualityGambleGame.Gameplay
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
                 {
-                    if(this.gameBoard.TryMove(new Vector2(1, 0), 1))
+                    if (this.gameBoard.TryMove(new Vector2(1, 0), 1))
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
                 {
-                    if(this.gameBoard.TryMove(new Vector2(0, 1), 1))
+                    if (this.gameBoard.TryMove(new Vector2(0, 1), 1))
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
                 {
-                    if(this.gameBoard.TryMove(new Vector2(0, -1), 1))
+                    if (this.gameBoard.TryMove(new Vector2(0, -1), 1))
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
-                }                
+                }
             }
             else if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
             {
-                //TODO: compare moves, count down and reset
-                Debug.WriteLine("player 1 move: " + this.gameBoard.GetPlayerMove(1).NumCoins().ToString());
-                Debug.WriteLine("player 2 move: " + this.gameBoard.GetPlayerMove(2).NumCoins().ToString());
-                Debug.WriteLine("player 3 move: " + this.gameBoard.GetPlayerMove(3).NumCoins().ToString());
-                Debug.WriteLine("player 4 move: " + this.gameBoard.GetPlayerMove(4).NumCoins().ToString());
+                //TODO: compare moves
+                GameTile playerOneSelectedeTile = this.gameBoard.GetPlayerMove(1);
+                GameTile playerTwoSelectedTile = this.gameBoard.GetPlayerMove(2);
+                GameTile playerThreeSelectedTile = this.gameBoard.GetPlayerMove(3);
+                GameTile playerFourSelectedTile = this.gameBoard.GetPlayerMove(4);
+
+                bool playerOneScores = true;
+                bool playerTwoScores = true;
+                bool playerThreeScores = true;
+                bool playerFourScores = true;
+
+                //Check all players if they picked same tile as other players
+                if (playerOneSelectedeTile.Equals(playerTwoSelectedTile))
+                {                    
+                    Debug.WriteLine("Player 1 and 2 picked same tile");
+                    playerOneScores = false;
+                    playerTwoScores = false;
+                }
+
+                if (playerOneSelectedeTile.Equals(playerThreeSelectedTile))
+                {
+                    Debug.WriteLine("Player 1 and 3 picked same tile");
+                    playerOneScores = false;
+                    playerThreeScores = false;
+                }
+
+                if (playerOneSelectedeTile.Equals(playerFourSelectedTile))
+                {
+                    Debug.WriteLine("Player 1 and 4 picked same tile");
+                    playerOneScores = false;
+                    playerFourScores = false;
+                }
+
+                if (playerTwoSelectedTile.Equals(playerThreeSelectedTile))
+                {
+                    Debug.WriteLine("Player 2 and 3 picked same tile");
+                    playerTwoScores = false;
+                    playerThreeScores = false;
+                }
+
+                if (playerTwoSelectedTile.Equals(playerFourSelectedTile))
+                {
+                    Debug.WriteLine("Player 2 and 4 picked same tile");
+                    playerTwoScores = false;
+                    playerFourScores = false;
+                }
+
+                if (playerThreeSelectedTile.Equals(playerFourSelectedTile))
+                {
+                    Debug.WriteLine("Player 3 and 4 picked same tile");
+                    playerThreeScores = false;
+                    playerFourScores = false;
+                }
+
+                //Handle scoring
+                if (playerOneScores)
+                {
+                    this.gameBoard.GetPlayer(1).AddCoins(playerOneSelectedeTile.NumCoins());
+                    Debug.WriteLine("player 1 score: " + playerOneSelectedeTile.NumCoins().ToString());
+                }
+
+                if (playerTwoScores)
+                {
+                    this.gameBoard.GetPlayer(2).AddCoins(playerTwoSelectedTile.NumCoins());
+                    Debug.WriteLine("player 2 score: " + playerTwoSelectedTile.NumCoins().ToString());
+                }
+
+                if (playerThreeScores)
+                {
+                    this.gameBoard.GetPlayer(3).AddCoins(playerThreeSelectedTile.NumCoins());
+                    Debug.WriteLine("player 3 score: " + playerThreeSelectedTile.NumCoins().ToString());
+                }
+
+                if (playerFourScores)
+                {
+                    this.gameBoard.GetPlayer(4).AddCoins(playerFourSelectedTile.NumCoins());
+                    Debug.WriteLine("player 4 score: " + playerFourSelectedTile.NumCoins().ToString());
+                }
+
+                StateMachine.SetGameState(StateMachine.GameState.PlayAgain);
+            }
+            else if (StateMachine.CurrentState == StateMachine.GameState.PlayAgain)
+            {
+                this.debugTextRenderer.Text = new FormattedText("Do you want to play again? Press Y to try again.");
+
+                if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Y))
+                {
+                    ResetGame();
+                }
             }
         }
 
@@ -114,10 +201,15 @@ namespace DualityGambleGame.Gameplay
                             );
 
                         // Draw tile debug
-                        canvas.DrawText("Coins: " + tile.NumCoins(), pos.X, pos.Y, pos.Z);
-
-                        //int playerNumber = tile.Player().PlayerNumber();
-                        //canvas.DrawText("Player: " + playerNumber, pos.X, pos.Y + 20, pos.Z);
+                        if (tile.Player() == null)
+                        {
+                            canvas.DrawText("Coins: " + tile.NumCoins(), pos.X, pos.Y, pos.Z);
+                        }
+                        else
+                        {                            
+                            canvas.DrawText("Player: " + tile.Player().PlayerNumber(), pos.X, pos.Y, pos.Z);
+                            canvas.DrawText("Score: " + tile.Player().TotalCoins(), pos.X, pos.Y + 20, pos.Z);
+                        }
                     }
                 }
 

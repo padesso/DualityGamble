@@ -13,7 +13,8 @@ namespace DualityGambleGame.State
             Loading,
             GeneratingBoard,
             WaitingPlayerInput,
-            ShowResults
+            ShowResults,
+            PlayAgain
         };
 
         private static GameState currentState = GameState.Loading;
