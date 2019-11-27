@@ -8,23 +8,22 @@ namespace DualityGambleGame.Gameplay
 {
     public class Player
     {
-        private int playerNumber;
         private bool isPlayerCharacter;
+        private int totalCoins = 0;
 
-        public Player(int playerNumber, bool isPlayerCharacter)
+        public Player(bool isPlayerCharacter)
         {
-            this.playerNumber = playerNumber;
             this.isPlayerCharacter = isPlayerCharacter;
-        }
-
-        public int PlayerNumber()
-        {
-            return this.playerNumber;
         }
 
         public bool IsPlayerCharacter()
         {
             return this.isPlayerCharacter;
+        }
+
+        public void AddCoins(int coins)
+        {
+            totalCoins += coins;
         }
     }
 }

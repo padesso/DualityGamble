@@ -37,6 +37,7 @@ namespace DualityGambleGame.Gameplay
             this.transform = GameObj.GetComponent<Transform>();
 
             this.gameBoard = new GameBoard();
+            this.gameBoard.Init();
 
             this.gameAI = new GameAI(this.gameBoard);
             this.gameAI.DoAI();
@@ -115,8 +116,8 @@ namespace DualityGambleGame.Gameplay
                         // Draw tile debug
                         canvas.DrawText("Coins: " + tile.NumCoins(), pos.X, pos.Y, pos.Z);
 
-                        int playerNumber = tile.Player().PlayerNumber();
-                        canvas.DrawText("Player: " + playerNumber, pos.X, pos.Y + 20, pos.Z);
+                        //int playerNumber = tile.Player().PlayerNumber();
+                        //canvas.DrawText("Player: " + playerNumber, pos.X, pos.Y + 20, pos.Z);
                     }
                 }
 

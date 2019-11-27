@@ -22,11 +22,24 @@ namespace DualityGambleGame.Gameplay
         private GameTile[,] boardArray;
         private GameTile[] targetTiles;
 
+        private Player[] players;
+
         public GameBoard()
+        {
+            
+        }
+
+        public void Init()
         {
             StateMachine.SetGameState(StateMachine.GameState.GeneratingBoard);
 
-            boardArray = new GameTile[WIDTH,HEIGHT];
+            players = new Player[4];
+            players[0] = new Player(true);
+            players[1] = new Player(false);
+            players[2] = new Player(false);
+            players[3] = new Player(false);
+
+            boardArray = new GameTile[WIDTH, HEIGHT];
             targetTiles = new GameTile[4];
 
             for (int widthIndex = 0; widthIndex < WIDTH; widthIndex++)
@@ -34,31 +47,31 @@ namespace DualityGambleGame.Gameplay
                 for (int heightIndex = 0; heightIndex < HEIGHT; heightIndex++)
                 {
                     //Don't generate coins on the corners where players start
-                    if (widthIndex == 0 && heightIndex == 0)
+                    if (widthIndex == 1 && heightIndex == 0) //top center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(1, true));
+                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(true));
                         continue;
                     }
 
-                    if (widthIndex == WIDTH -1 && heightIndex == 0)
+                    if (widthIndex == 0 && heightIndex == 1) //left center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(2, false));
+                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(false));
                         continue;
                     }
 
-                    if (widthIndex == 0 && heightIndex == HEIGHT - 1)
+                    if (widthIndex == WIDTH - 1 && heightIndex == 1) //right center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(3, false));
+                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(false));
                         continue;
                     }
 
-                    if (widthIndex == WIDTH - 1 && heightIndex == HEIGHT - 1)
+                    if (widthIndex == 1 && heightIndex == HEIGHT - 1) //bottom center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(4, false));
+                        boardArray[widthIndex, heightIndex] = new GameTile(0, new Player(false));
                         continue;
                     }
 
-                    boardArray[widthIndex, heightIndex] = new GameTile(RNG.Next(MIN_COINS, MAX_COINS + 1), new Player(0, false));
+                    boardArray[widthIndex, heightIndex] = new GameTile(RNG.Next(MIN_COINS, MAX_COINS + 1), null);
                 }
             }
         }
@@ -75,43 +88,31 @@ namespace DualityGambleGame.Gameplay
             switch(playerNumber)
             {
                 case 1:
-                    if(moveDirection.X < 0)
-                        return false;
-
                     if (moveDirection.Y < 0)
                         return false;
 
-                    targetTiles[0] = this.GetTile(0 + (int)moveDirection.X, 0 + (int)moveDirection.Y);                    
+                    targetTiles[0] = this.GetTile(1 + (int)moveDirection.X, 0 + (int)moveDirection.Y);                    
                     break;
 
                 case 2:
-                    if (moveDirection.X > 0)
+                    if (moveDirection.X < 0)
                         return false;
 
-                    if (moveDirection.Y < 0)
-                        return false;
-
-                    targetTiles[1] = this.GetTile(2 + (int)moveDirection.X, 0 + (int)moveDirection.Y);
+                    targetTiles[1] = this.GetTile(0 + (int)moveDirection.X, 1 + (int)moveDirection.Y);
                     break;
 
                 case 3:
                     if (moveDirection.X < 0)
                         return false;
 
-                    if (moveDirection.Y > 0)
-                        return false;
-
-                    targetTiles[2] = this.GetTile(0 + (int)moveDirection.X, 2 + (int)moveDirection.Y);
+                    targetTiles[2] = this.GetTile(2 + (int)moveDirection.X, 1 + (int)moveDirection.Y);
                     break;
 
                 case 4:
-                    if (moveDirection.X > 0)
-                        return false;
-
                     if (moveDirection.Y > 0)
                         return false;
 
-                    targetTiles[3] = this.GetTile(2 + (int)moveDirection.X, 2 + (int)moveDirection.Y);
+                    targetTiles[3] = this.GetTile(1 + (int)moveDirection.X, 2 + (int)moveDirection.Y);
                     break;
 
                 default:
