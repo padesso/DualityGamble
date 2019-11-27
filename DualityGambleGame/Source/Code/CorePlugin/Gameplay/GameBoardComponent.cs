@@ -35,16 +35,16 @@ namespace DualityGambleGame.Gameplay
         {
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
-                   
+
+            this.gameBoard = new GameBoard();
+            this.gameAI = new GameAI(this.gameBoard);
+
             ResetGame();
         }
 
         private void ResetGame()
-        {
-            this.gameBoard = new GameBoard();
-            this.gameBoard.Init();
-
-            this.gameAI = new GameAI(this.gameBoard);
+        {            
+            this.gameBoard.Init();            
             this.gameAI.DoAI();
         }
 

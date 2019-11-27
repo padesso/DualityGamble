@@ -22,9 +22,17 @@ namespace DualityGambleGame.Gameplay
         private GameTile[,] boardArray;
         private GameTile[] targetTiles;
 
+        private Player playerOne;
+        private Player playerTwo;
+        private Player playerThree;
+        private Player playerFour;
+
         public GameBoard()
         {
-            
+            playerOne   = new Player(true, 1);
+            playerTwo   = new Player(false, 2);
+            playerThree = new Player(false, 3);
+            playerFour  = new Player(false, 4);
         }
 
         public void Init()
@@ -41,25 +49,25 @@ namespace DualityGambleGame.Gameplay
                     //Don't generate coins on the corners where players start
                     if (widthIndex == 1 && heightIndex == 0) //top center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, new Player(true, 1));
+                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, playerOne);
                         continue;
                     }
 
                     if (widthIndex == 0 && heightIndex == 1) //left center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, new Player(false, 2));
+                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, playerTwo);
                         continue;
                     }
 
                     if (widthIndex == WIDTH - 1 && heightIndex == 1) //right center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, new Player(false, 3));
+                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, playerThree);
                         continue;
                     }
 
                     if (widthIndex == 1 && heightIndex == HEIGHT - 1) //bottom center
                     {
-                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, new Player(false, 4));
+                        boardArray[widthIndex, heightIndex] = new GameTile(widthIndex, heightIndex, 0, playerFour);
                         continue;
                     }
 
