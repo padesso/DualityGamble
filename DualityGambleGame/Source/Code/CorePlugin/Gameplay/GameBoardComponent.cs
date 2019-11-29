@@ -38,15 +38,15 @@ namespace DualityGambleGame.Gameplay
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
 
-            this.gameBoard = new GameBoard();
-            this.gameAI = new GameAI(this.gameBoard);
+            this.GameBoard = new GameBoard();
+            this.gameAI = new GameAI(this.GameBoard);
 
             ResetGame();
         }
 
         private void ResetGame()
         {            
-            this.gameBoard.Init();            
+            this.GameBoard.Init();            
             this.gameAI.DoAI();
         }
 
@@ -59,32 +59,32 @@ namespace DualityGambleGame.Gameplay
 
                 if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Left))
                 {
-                    if (this.gameBoard.TryMove(new Vector2(-1, 0), 1))
+                    if (this.GameBoard.TryMove(new Vector2(-1, 0), 1))
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
                 {
-                    if (this.gameBoard.TryMove(new Vector2(1, 0), 1))
+                    if (this.GameBoard.TryMove(new Vector2(1, 0), 1))
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
                 {
-                    if (this.gameBoard.TryMove(new Vector2(0, 1), 1))
+                    if (this.GameBoard.TryMove(new Vector2(0, 1), 1))
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
                 {
-                    if (this.gameBoard.TryMove(new Vector2(0, -1), 1))
+                    if (this.GameBoard.TryMove(new Vector2(0, -1), 1))
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
                 }
             }
             else if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
             {
                 //TODO: compare moves
-                GameTile playerOneSelectedeTile = this.gameBoard.GetPlayerMove(1);
-                GameTile playerTwoSelectedTile = this.gameBoard.GetPlayerMove(2);
-                GameTile playerThreeSelectedTile = this.gameBoard.GetPlayerMove(3);
-                GameTile playerFourSelectedTile = this.gameBoard.GetPlayerMove(4);
+                GameTile playerOneSelectedeTile = this.GameBoard.GetPlayerMove(1);
+                GameTile playerTwoSelectedTile = this.GameBoard.GetPlayerMove(2);
+                GameTile playerThreeSelectedTile = this.GameBoard.GetPlayerMove(3);
+                GameTile playerFourSelectedTile = this.GameBoard.GetPlayerMove(4);
 
                 bool playerOneScores = true;
                 bool playerTwoScores = true;
@@ -137,25 +137,25 @@ namespace DualityGambleGame.Gameplay
                 //Handle scoring
                 if (playerOneScores)
                 {
-                    this.gameBoard.GetPlayer(1).AddCoins(playerOneSelectedeTile.NumCoins());
+                    this.GameBoard.GetPlayer(1).AddCoins(playerOneSelectedeTile.NumCoins());
                     Debug.WriteLine("player 1 score: " + playerOneSelectedeTile.NumCoins().ToString());
                 }
 
                 if (playerTwoScores)
                 {
-                    this.gameBoard.GetPlayer(2).AddCoins(playerTwoSelectedTile.NumCoins());
+                    this.GameBoard.GetPlayer(2).AddCoins(playerTwoSelectedTile.NumCoins());
                     Debug.WriteLine("player 2 score: " + playerTwoSelectedTile.NumCoins().ToString());
                 }
 
                 if (playerThreeScores)
                 {
-                    this.gameBoard.GetPlayer(3).AddCoins(playerThreeSelectedTile.NumCoins());
+                    this.GameBoard.GetPlayer(3).AddCoins(playerThreeSelectedTile.NumCoins());
                     Debug.WriteLine("player 3 score: " + playerThreeSelectedTile.NumCoins().ToString());
                 }
 
                 if (playerFourScores)
                 {
-                    this.gameBoard.GetPlayer(4).AddCoins(playerFourSelectedTile.NumCoins());
+                    this.GameBoard.GetPlayer(4).AddCoins(playerFourSelectedTile.NumCoins());
                     Debug.WriteLine("player 4 score: " + playerFourSelectedTile.NumCoins().ToString());
                 }
 
@@ -191,11 +191,11 @@ namespace DualityGambleGame.Gameplay
                 // Prepare the Canvas for rendering to the target device
                 this.canvas.Begin(device);
 
-                for (int widthIndex = 0; widthIndex < this.gameBoard.Width(); widthIndex++)
+                for (int widthIndex = 0; widthIndex < this.GameBoard.Width(); widthIndex++)
                 {
-                    for (int heightIndex = 0; heightIndex < this.gameBoard.Height(); heightIndex++)
+                    for (int heightIndex = 0; heightIndex < this.GameBoard.Height(); heightIndex++)
                     {
-                        GameTile tile = gameBoard.GetTile(widthIndex, heightIndex);
+                        GameTile tile = GameBoard.GetTile(widthIndex, heightIndex);
 
                         //TODO: modify position based on indices
                         Vector3 pos = new Vector3(
@@ -238,6 +238,19 @@ namespace DualityGambleGame.Gameplay
             set
             {
                 debugMode = value;
+            }
+        }
+
+        public GameBoard GameBoard
+        {
+            get
+            {
+                return gameBoard;
+            }
+
+            private set
+            {
+                gameBoard = value;
             }
         }
     }
