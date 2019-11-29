@@ -53,6 +53,7 @@
     <Compile Include="Gameplay\GameBoardComponent.cs" />
     <Compile Include="Gameplay\GameTile.cs" />
     <Compile Include="Gameplay\Player.cs" />
+    <Compile Include="Graphics\GameBoardRenderer.cs" />
     <Compile Include="State\StateMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

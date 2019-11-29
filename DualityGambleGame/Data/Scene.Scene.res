@@ -152,8 +152,16 @@
             <angleAbs dataType="Float">0</angleAbs>
             <gameobj dataType="ObjectRef">2176392774</gameobj>
             <ignoreParent dataType="Bool">false</ignoreParent>
-            <pos dataType="Struct" type="Duality.Vector3" />
-            <posAbs dataType="Struct" type="Duality.Vector3" />
+            <pos dataType="Struct" type="Duality.Vector3">
+              <X dataType="Float">0</X>
+              <Y dataType="Float">200</Y>
+              <Z dataType="Float">0</Z>
+            </pos>
+            <posAbs dataType="Struct" type="Duality.Vector3">
+              <X dataType="Float">0</X>
+              <Y dataType="Float">200</Y>
+              <Z dataType="Float">0</Z>
+            </posAbs>
             <scale dataType="Float">1</scale>
             <scaleAbs dataType="Float">1</scaleAbs>
           </item>
@@ -162,9 +170,9 @@
             <blockAlign dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
             <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
-              <B dataType="Byte">255</B>
-              <G dataType="Byte">255</G>
-              <R dataType="Byte">255</R>
+              <B dataType="Byte">49</B>
+              <G dataType="Byte">49</G>
+              <R dataType="Byte">49</R>
             </colorTint>
             <customMat />
             <gameobj dataType="ObjectRef">2176392774</gameobj>
@@ -281,6 +289,56 @@
       </identifier>
       <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
       <name dataType="String">Background</name>
+      <parent />
+      <prefabLink />
+    </item>
+    <item dataType="Struct" type="Duality.GameObject" id="4100170527">
+      <active dataType="Bool">true</active>
+      <children />
+      <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1836048349">
+        <_items dataType="Array" type="Duality.Component[]" id="3700540518" length="4">
+          <item dataType="Struct" type="Duality.Components.Transform" id="4157447745">
+            <active dataType="Bool">true</active>
+            <angle dataType="Float">0</angle>
+            <angleAbs dataType="Float">0</angleAbs>
+            <gameobj dataType="ObjectRef">4100170527</gameobj>
+            <ignoreParent dataType="Bool">false</ignoreParent>
+            <pos dataType="Struct" type="Duality.Vector3" />
+            <posAbs dataType="Struct" type="Duality.Vector3" />
+            <scale dataType="Float">1</scale>
+            <scaleAbs dataType="Float">1</scaleAbs>
+          </item>
+          <item dataType="Struct" type="DualityGambleGame.Graphics.GameBoardRenderer" id="3636699007">
+            <active dataType="Bool">true</active>
+            <gameBoardComponent dataType="ObjectRef">2796311637</gameBoardComponent>
+            <gameobj dataType="ObjectRef">4100170527</gameobj>
+            <transform dataType="ObjectRef">4157447745</transform>
+          </item>
+        </_items>
+        <_size dataType="Int">2</_size>
+      </compList>
+      <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="388918392" surrogate="true">
+        <header />
+        <body>
+          <keys dataType="Array" type="System.Object[]" id="804554423">
+            <item dataType="ObjectRef">1296828646</item>
+            <item dataType="Type" id="2938553230" value="DualityGambleGame.Graphics.GameBoardRenderer" />
+          </keys>
+          <values dataType="Array" type="System.Object[]" id="4014568256">
+            <item dataType="ObjectRef">4157447745</item>
+            <item dataType="ObjectRef">3636699007</item>
+          </values>
+        </body>
+      </compMap>
+      <compTransform dataType="ObjectRef">4157447745</compTransform>
+      <identifier dataType="Struct" type="System.Guid" surrogate="true">
+        <header>
+          <data dataType="Array" type="System.Byte[]" id="214371477">DGsX5Fudmk2RWUwfW2870A==</data>
+        </header>
+        <body />
+      </identifier>
+      <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+      <name dataType="String">GameBoardRenderer</name>
       <parent />
       <prefabLink />
     </item>

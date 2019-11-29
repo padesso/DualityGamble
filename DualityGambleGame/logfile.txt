@@ -1,8 +1,8 @@
-[Core] Msg: Running DualityLauncher with flags: RunFromEditor
+[Core] Msg: Running DualityLauncher with flags: Debugging
 [Core] Msg: Using 'DefaultAssemblyLoader' to load plugins.
 [Core] Msg: Environment Info:
               Current Directory: C:\Dev\DualityGamble\DualityGambleGame
-              Command Line: "C:\Dev\DualityGamble\DualityGambleGame\DualityLauncher.exe" editor
+              Command Line: "C:\Dev\DualityGamble\DualityGambleGame\Source\Code\..\..\DualityLauncher.exe" 
               Operating System: Windows 8 or higher (Microsoft Windows NT 6.2.9200.0)
               64 Bit OS: True
               64 Bit Process: True
@@ -115,8 +115,8 @@
 [Core] Msg:   GamePlugin.core...
 [Core] Msg:   Tilemaps.core...
 [Core] Msg: DualityApp initialized
-            Debug Mode: False
-            Command line arguments: editor
+            Debug Mode: True
+            Command line arguments: 
 [Core] Msg: Opening Window...
 [Core] Msg:   Context specs: 
                 Buffers: 2
@@ -125,7 +125,7 @@
                 AccumFormat: 64 (16161616)
                 Depth: 24
                 Stencil: 8
-                SwapInterval: -1
+                SwapInterval: 0
 [Core] Msg:   Graphics backend capabilities:
                 OpenGL Version: '3.0.0 - Build 20.19.15.4463', i.e. 3.0.0
                 Vendor: Intel
@@ -143,10 +143,10 @@
 [Core] Msg:   ...done!
 [Core] Msg: Assembly loaded: DualityPhysics 3.0.4.0
 [Core] Msg: Loading Resource 'Data\Scene.Scene.res'
+[Core] Msg: Assembly loaded: System.Configuration 4.0.0.0
 [Core] Msg: Loading Resource 'Data\Board\tile.Material.res'
 [Core] Msg:   Loading Resource 'Data\Board\tile.Texture.res'
 [Core] Msg:     Loading Resource 'Data\Board\tile.Pixmap.res'
-[Core] Msg: Assembly loaded: System.Configuration 4.0.0.0
 [Core] Msg: Determining OpenGL rendering capabilities...
 [Core] Msg: Loading Resource 'Data\Background\bg_grasslands.Material.res'
 [Core] Msg:   Loading Resource 'Data\Background\bg_grasslands.Texture.res'
@@ -154,6 +154,7 @@
 [Core] Msg: Compiling DrawTechnique 'Default\DrawTechnique\Mask'...
 [Core] Msg:   Compiling Vertex shader 'Default\VertexShader\Minimal'...
 [Core] Msg:   Compiling Fragment shader 'Default\FragmentShader\Minimal'...
+[Core] Msg: Compiling DrawTechnique 'Default\DrawTechnique\Alpha'...
 [Core] Msg: Shutting down OpenGL 2.1 (OpenTK)...
 [Core] Msg: Shutting down OpenAL (OpenTK)...
 [Core] Msg: Shutting down .Net Framework...

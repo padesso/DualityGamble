@@ -10,6 +10,7 @@ using Duality.Drawing;
 using Duality.Resources;
 using DualityGambleGame.AI;
 using DualityGambleGame.State;
+using static Duality.Drawing.FormattedText;
 
 namespace DualityGambleGame.Gameplay
 {
@@ -32,15 +33,8 @@ namespace DualityGambleGame.Gameplay
 
         private bool debugMode;
 
-        [DontSerialize]
-        private ContentRef<Material> tileMat;
-
         public void OnActivate()
         {
-            //Preload the game assets
-            this.tileMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "tile").FirstOrDefault();
-            this.tileMat.EnsureLoaded();
-
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
 
@@ -212,13 +206,13 @@ namespace DualityGambleGame.Gameplay
 
                         // Draw tile debug
                         if (tile.Player() == null)
-                        {
-                            canvas.DrawText("Coins: " + tile.NumCoins(), pos.X, pos.Y, pos.Z);
+                        {                            
+                            canvas.DrawText("Coins: " + tile.NumCoins(), pos.X, pos.Y, pos.Z, Alignment.TopLeft, true);
                         }
                         else
                         {                            
-                            canvas.DrawText("Player: " + tile.Player().PlayerNumber(), pos.X, pos.Y, pos.Z);
-                            canvas.DrawText("Score: " + tile.Player().TotalCoins(), pos.X, pos.Y + 20, pos.Z);
+                            canvas.DrawText("Player: " + tile.Player().PlayerNumber(), pos.X, pos.Y, pos.Z, Alignment.TopLeft, true);
+                            canvas.DrawText("Score: " + tile.Player().TotalCoins(), pos.X, pos.Y + 20, pos.Z, Alignment.TopLeft, true);
                         }
                     }
                 }
