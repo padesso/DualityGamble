@@ -2,44 +2,44 @@
 --------------------[ TimeCounter ]---------------
 
 Name                          Avg. Value    Min. Value    Max. Value         Samples 
-Duality\Frame:                     36.40          0.00        335.11             646 
-  Update:                          19.37          0.00         80.91             646 
-    Physics:                        0.04          0.00         12.53             646 
-      Contacts:                     0.00          0.00          0.96             646 
-      Controller:                   0.00          0.00          0.12             646 
-      Continous:                    0.01          0.00          3.43             646 
-      AddRemove:                    0.00          0.00          0.03             646 
-      Solve:                        0.02          0.00          5.22             646 
-    Scene:                         18.79          0.00         39.93             646 
-      All Components:              18.30          0.00         39.73             646 
-      VelocityTracker:              0.02          0.00          3.06             645 
-      GameBoardComponent:           0.07          0.01         13.35             645 
-      GameBoardRenderer:           18.15          3.10         39.67             645 
-    Audio:                          0.06          0.00          2.49             646 
-  Render:                          15.63          0.00        248.72             646 
-    SwapBuffers:                    9.73          0.00         58.16             646 
-    QueryVisibleRenderers:          0.10          0.00          3.31             646 
-    CollectDrawcalls:               2.19          0.00         58.03             646 
-      TextRenderer:                 0.18          0.04         18.02             645 
-      SpriteRenderer:               0.47          0.09         29.70             645 
-      GameBoardComponent:           1.34          0.27         11.32             645 
-    OptimizeDrawcalls:              0.11          0.00          5.06             646 
-    ProcessDrawcalls:               2.60          0.00         98.65             646 
-  Log:                            207.96          9.37        406.56               2 
+Duality\Frame:                     34.42          0.00        770.70            1453 
+  Update:                          11.89          0.00         61.35            1453 
+    Physics:                        0.03          0.00         13.10            1453 
+      Contacts:                     0.00          0.00          2.41            1453 
+      Controller:                   0.00          0.00          0.38            1453 
+      Continous:                    0.00          0.00          2.65            1453 
+      AddRemove:                    0.00          0.00          0.19            1453 
+      Solve:                        0.01          0.00          5.00            1453 
+    Scene:                         11.35          0.00         45.74            1453 
+      All Components:              10.88          0.00         45.60            1453 
+      VelocityTracker:              0.02          0.00          2.43            1452 
+      GameBoardComponent:           0.15          0.01         23.94            1452 
+      GameBoardRenderer:           10.64          0.04         45.49            1452 
+    Audio:                          0.06          0.00          2.91            1453 
+  Render:                          21.49          0.00        249.35            1453 
+    SwapBuffers:                   15.68          0.00         61.77            1453 
+    QueryVisibleRenderers:          0.09          0.00          4.33            1453 
+    CollectDrawcalls:               2.23          0.00         56.93            1453 
+      TextRenderer:                 0.16          0.03         17.98            1452 
+      SpriteRenderer:               0.40          0.06         29.48            1452 
+      GameBoardComponent:           1.51          0.29         11.83            1452 
+    OptimizeDrawcalls:              0.11          0.00          8.09            1453 
+    ProcessDrawcalls:               2.48          0.00         88.67            1453 
+  Log:                            170.63          8.59        332.66               2 
   VisualPicking:                    0.00          0.00          0.00               1 
-  Unaccounted:                      0.75       -406.56        300.87             646 
-Cameras\MainCamera:                 5.92          1.09        190.65             645 
+  Unaccounted:                      0.81       -332.66        734.37            1453 
+Cameras\MainCamera:                 5.83          1.14        187.66            1452 
 
 --------------------[ StatCounter ]---------------
 
 Name                                         Avg. Value    Min. Value    Max. Value         Samples 
-Duality\Stats\Audio\NumPlaying2D:                     0             0             0             646 
-Duality\Stats\Audio\NumPlaying3D:                     0             0             0             646 
-Duality\Stats\Render\NumDrawcalls:                   14             0            14             646 
-Duality\Stats\Render\NumRawBatches:                  72             0            81             646 
-Duality\Stats\Render\NumMergedBatches:               23             0            23             646 
-Duality\Stats\Render\NumOptimizedBatches:            14             0            14             646 
-Duality\Stats\Memory\TotalUsage:                   9881          6884         16924             646 
-Duality\Stats\Memory\GarbageCollect0:               124             -             -               - 
-Duality\Stats\Memory\GarbageCollect1:                 9             -             -               - 
+Duality\Stats\Audio\NumPlaying2D:                     0             0             0            1453 
+Duality\Stats\Audio\NumPlaying3D:                     0             0             0            1453 
+Duality\Stats\Render\NumDrawcalls:                   14             0            14            1453 
+Duality\Stats\Render\NumRawBatches:                  64             0            86            1453 
+Duality\Stats\Render\NumMergedBatches:               20             0            23            1453 
+Duality\Stats\Render\NumOptimizedBatches:            14             0            14            1453 
+Duality\Stats\Memory\TotalUsage:                   8802          6818         16862            1453 
+Duality\Stats\Memory\GarbageCollect0:               140             -             -               - 
+Duality\Stats\Memory\GarbageCollect1:                12             -             -               - 
 Duality\Stats\Memory\GarbageCollect2:                 6             -             -               - 

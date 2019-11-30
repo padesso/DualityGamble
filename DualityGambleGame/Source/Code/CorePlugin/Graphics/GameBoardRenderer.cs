@@ -4,6 +4,7 @@ using Duality.Components.Renderers;
 using Duality.Drawing;
 using Duality.Resources;
 using DualityGambleGame.Gameplay;
+using DualityGambleGame.State;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -91,33 +92,52 @@ namespace DualityGambleGame.Graphics
 
         public void OnUpdate()
         {
-            //Draw from the coin pool and put them in the right place
-            for (int widthIndex = 0; widthIndex < this.gameBoardComponent.GameBoard.Width(); widthIndex++)
+            if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
             {
-                for (int heightIndex = 0; heightIndex < this.gameBoardComponent.GameBoard.Height(); heightIndex++)
-                {                    
-                    var tileCoins = coinPoolList.Where(c => c.Name.Contains("Coin" + "_" + widthIndex + "_" + heightIndex));
-                    int numTileCoins = this.gameBoardComponent.GameBoard.GetTile(widthIndex, heightIndex).NumCoins();
 
-                    if (numTileCoins == 0)
-                        continue;
-
-                    int tileCoinIndex = 0;
-
-                    foreach(var tileCoin in tileCoins)
+            }
+            if (StateMachine.CurrentState == StateMachine.GameState.PlayAgain)
+            {
+                ResetCoinPool();
+            }
+            else
+            {
+                //Draw from the coin pool and put them in the right place
+                for (int widthIndex = 0; widthIndex < this.gameBoardComponent.GameBoard.Width(); widthIndex++)
+                {
+                    for (int heightIndex = 0; heightIndex < this.gameBoardComponent.GameBoard.Height(); heightIndex++)
                     {
-                        //break out if we've drawn enough coins from the pool for this tile
-                        if (tileCoinIndex >= numTileCoins)
+                        var tileCoins = coinPoolList.Where(c => c.Name.Contains("Coin" + "_" + widthIndex + "_" + heightIndex));
+                        int numTileCoins = this.gameBoardComponent.GameBoard.GetTile(widthIndex, heightIndex).NumCoins();
+
+                        if (numTileCoins == 0)
                             continue;
 
-                        //TODO: spread this out so it displays better
-                        tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 10 * tileCoinIndex, -225 + 150 * heightIndex, 0);
+                        int tileCoinIndex = 0;
 
-                        tileCoinIndex++;
+                        foreach (var tileCoin in tileCoins)
+                        {
+                            //break out if we've drawn enough coins from the pool for this tile
+                            if (tileCoinIndex >= numTileCoins)
+                                continue;
+
+                            //TODO: spread this out so it displays better
+                            tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 10 * tileCoinIndex, -225 + 150 * heightIndex, 0);
+
+                            tileCoinIndex++;
+                        }
+
+                        Debug.WriteLine("Wait");
                     }
-
-                    Debug.WriteLine("Wait");
                 }
+            }
+        }
+
+        private void ResetCoinPool()
+        {
+            foreach (var coin in coinPoolList)
+            {
+                coin.Transform.Pos = new Vector3(-2000, -2000, 0); //Create the coin way off screen
             }
         }
 
