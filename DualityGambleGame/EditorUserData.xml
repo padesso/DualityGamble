@@ -28,7 +28,10 @@
         <ActiveState>Duality.Editor.Plugins.CamView.CamViewStates.GameViewCamViewState</ActiveState>
         <States>
           <State type="Duality.Editor.Plugins.CamView.CamViewStates.GameViewCamViewState">
-            <SpecialRenderSize>CamView</SpecialRenderSize>
+            <RenderSize>
+              <X>1280</X>
+              <Y>1024</Y>
+            </RenderSize>
             <RecentRenderSizes />
           </State>
           <State type="Duality.Editor.Plugins.CamView.CamViewStates.RigidBodyEditorCamViewState">

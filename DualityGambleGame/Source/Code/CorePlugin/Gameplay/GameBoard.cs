@@ -159,5 +159,10 @@ namespace DualityGambleGame.Gameplay
         {
             return HEIGHT;
         }
+
+        public int MaxCoinsPerTile()
+        {
+            return MAX_COINS;
+        }
     }
 }
