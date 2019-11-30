@@ -147,6 +147,9 @@
 [Core] Msg: Loading Resource 'Data\Board\tile.Material.res'
 [Core] Msg:   Loading Resource 'Data\Board\tile.Texture.res'
 [Core] Msg:     Loading Resource 'Data\Board\tile.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Board\coinGold.Material.res'
+[Core] Msg:   Loading Resource 'Data\Board\coinGold.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Board\coinGold.Pixmap.res'
 [Core] Msg: Determining OpenGL rendering capabilities...
 [Core] Msg: Loading Resource 'Data\Background\bg_grasslands.Material.res'
 [Core] Msg:   Loading Resource 'Data\Background\bg_grasslands.Texture.res'

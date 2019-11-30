@@ -25,17 +25,24 @@ namespace DualityGambleGame.Graphics
         [DontSerialize]
         private ContentRef<Material> tileMat;
 
+        [DontSerialize]
+        private ContentRef<Material> coinMat;
+
         public void OnActivate()
         {
             //Preload the game assets
             this.tileMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "tile").FirstOrDefault();
             this.tileMat.EnsureLoaded();
 
+            this.coinMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "coinGold").FirstOrDefault();
+            this.coinMat.EnsureLoaded();
+
             this.transform = GameObj.GetComponent<Transform>();
             this.gameBoardComponent = GameObj.Scene.FindComponent<GameBoardComponent>();
 
             Debug.WriteLine("Game board renderer init");
 
+            //Draw the game board
             for(int widthIndex = 0; widthIndex < this.gameBoardComponent.GameBoard.Width(); widthIndex++)
             {
                 for (int heightIndex = 0; heightIndex < this.gameBoardComponent.GameBoard.Height(); heightIndex++)

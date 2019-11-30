@@ -207,12 +207,12 @@ namespace DualityGambleGame.Gameplay
                         // Draw tile debug
                         if (tile.Player() == null)
                         {                            
-                            canvas.DrawText("Coins: " + tile.NumCoins(), pos.X, pos.Y, pos.Z, Alignment.TopLeft, true);
+                            canvas.DrawText(new FormattedText("/cffd700FF Coins: " + tile.NumCoins()), pos.X, pos.Y, pos.Z, null, Alignment.TopLeft, true);
                         }
                         else
                         {                            
-                            canvas.DrawText("Player: " + tile.Player().PlayerNumber(), pos.X, pos.Y, pos.Z, Alignment.TopLeft, true);
-                            canvas.DrawText("Score: " + tile.Player().TotalCoins(), pos.X, pos.Y + 20, pos.Z, Alignment.TopLeft, true);
+                            canvas.DrawText(new FormattedText("/c000000FF Player: " + tile.Player().PlayerNumber()), pos.X, pos.Y, pos.Z, null, Alignment.TopLeft, false);
+                            canvas.DrawText(new FormattedText("/cFF0000FF Score: " + tile.Player().TotalCoins()), pos.X, pos.Y + 20, pos.Z, null, Alignment.TopLeft, false);
                         }
                     }
                 }
