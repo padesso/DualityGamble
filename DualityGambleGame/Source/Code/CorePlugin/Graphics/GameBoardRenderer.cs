@@ -66,32 +66,59 @@ namespace DualityGambleGame.Graphics
                     tempTileGameObject.AddComponent(tempTileSpriteRenderer);
                     GameObj.Scene.AddObject(tempTileGameObject);
                     boardTileList.Add(tempTileGameObject);
+
+                    //Create the coin pool - only have 5 non-player tiles currently.  Maybe make this more generic down the road.
+                    for (int coinIndex = 0; coinIndex < this.gameBoardComponent.GameBoard.MaxCoinsPerTile(); coinIndex++)
+                    {
+                        GameObject tempCoinGameObject = new GameObject("Coin" + "_" + widthIndex + "_" + heightIndex + "_" + coinIndex);
+                        Transform tempCoinTransform = new Transform();
+                        tempCoinTransform.Pos = new Vector3(-2000, -2000, 0); //Create the coin way off screen
+
+                        tempCoinGameObject.AddComponent(tempCoinTransform);
+
+                        SpriteRenderer tempCoinSpriteRenderer = new SpriteRenderer();
+                        tempCoinSpriteRenderer.DepthOffset = -10;
+                        tempCoinSpriteRenderer.SharedMaterial = coinMat;
+                        tempCoinSpriteRenderer.Rect = new Rect(0, 0, 64, 64);
+
+                        tempCoinGameObject.AddComponent(tempCoinSpriteRenderer);
+                        GameObj.Scene.AddObject(tempCoinGameObject);
+                        coinPoolList.Add(tempCoinGameObject);
+                    }
                 }
-            }
-
-            //Create the coin pool - only have 5 non-player tiles currently.  Maybe make this more generic down the road.
-            for(int coinIndex = 0; coinIndex < 5 * this.gameBoardComponent.GameBoard.MaxCoinsPerTile(); coinIndex++)
-            {
-                GameObject tempCoinGameObject = new GameObject("Coin" + coinIndex);
-                Transform tempCoinTransform = new Transform();
-                tempCoinTransform.Pos = new Vector3(-2000, -2000, 0); //Create the coin way off screen
-
-                tempCoinGameObject.AddComponent(tempCoinTransform);
-
-                SpriteRenderer tempCoinSpriteRenderer = new SpriteRenderer();
-                tempCoinSpriteRenderer.DepthOffset = -10;
-                tempCoinSpriteRenderer.SharedMaterial = coinMat;
-                tempCoinSpriteRenderer.Rect = new Rect(0, 0, 64, 64);
-
-                tempCoinGameObject.AddComponent(tempCoinSpriteRenderer);
-                GameObj.Scene.AddObject(tempCoinGameObject);
-                coinPoolList.Add(tempCoinGameObject);
-            }
+            }   
         }
 
         public void OnUpdate()
         {
-            //TODO: draw from the coin pool and put them in the right place
+            //Draw from the coin pool and put them in the right place
+            for (int widthIndex = 0; widthIndex < this.gameBoardComponent.GameBoard.Width(); widthIndex++)
+            {
+                for (int heightIndex = 0; heightIndex < this.gameBoardComponent.GameBoard.Height(); heightIndex++)
+                {                    
+                    var tileCoins = coinPoolList.Where(c => c.Name.Contains("Coin" + "_" + widthIndex + "_" + heightIndex));
+                    int numTileCoins = this.gameBoardComponent.GameBoard.GetTile(widthIndex, heightIndex).NumCoins();
+
+                    if (numTileCoins == 0)
+                        continue;
+
+                    int tileCoinIndex = 0;
+
+                    foreach(var tileCoin in tileCoins)
+                    {
+                        //break out if we've drawn enough coins from the pool for this tile
+                        if (tileCoinIndex >= numTileCoins)
+                            continue;
+
+                        //TODO: spread this out so it displays better
+                        tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 10 * tileCoinIndex, -225 + 150 * heightIndex, 0);
+
+                        tileCoinIndex++;
+                    }
+
+                    Debug.WriteLine("Wait");
+                }
+            }
         }
 
         public void OnDeactivate()
