@@ -24,10 +24,7 @@ namespace DualityGambleGame.Graphics
 
         [DontSerialize]
         private ContentRef<Material> tileMat;
-
-        [DontSerialize]
-        private ContentRef<Material> coinMat;
-
+        
         [DontSerialize]
         private GameObject[] coinPool;
 
@@ -36,9 +33,6 @@ namespace DualityGambleGame.Graphics
             //Preload the game assets
             this.tileMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "tile").FirstOrDefault();
             this.tileMat.EnsureLoaded();
-
-            this.coinMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "coinGold").FirstOrDefault();
-            this.coinMat.EnsureLoaded();
 
             this.transform = GameObj.GetComponent<Transform>();
             this.gameBoardComponent = GameObj.Scene.FindComponent<GameBoardComponent>();
@@ -63,25 +57,6 @@ namespace DualityGambleGame.Graphics
                     tempTileGameObject.AddComponent(tempTile);
                     GameObj.Scene.AddObject(tempTileGameObject);
                 }
-            }
-
-            //Create a pool of coins off the screen - there is only 5 playable tiles in the game.
-            coinPool = new GameObject[5 * this.gameBoardComponent.GameBoard.MaxCoinsPerTile()];
-
-            for (int coinIndex = 0; coinIndex < coinPool.Length; coinIndex++)
-            {                
-                coinPool[coinIndex] = new GameObject("Coin" + "_" + coinIndex);
-                Transform tempCoinTransform = new Transform();
-                tempCoinTransform.Pos = new Vector3(-225, -225, 0); //Create the coins off camera
-                coinPool[coinIndex].AddComponent(tempCoinTransform);
-
-                SpriteRenderer tempCoin = new SpriteRenderer();
-                tempCoin.DepthOffset = 10;
-                tempCoin.SharedMaterial = coinMat;
-                tempCoin.Rect = new Rect(0, 0, 32, 32);
-
-                coinPool[coinIndex].AddComponent(tempCoin);
-                GameObj.Scene.AddObject(coinPool[coinIndex]);
             }
         }
 
@@ -124,12 +99,6 @@ namespace DualityGambleGame.Graphics
 
         public void OnDeactivate()
         {
-            //Get rid of the pool of coins
-            for (int coinIndex = 0; coinIndex < coinPool.Length; coinIndex++)
-            {
-                GameObj.Scene.RemoveObject(coinPool[coinIndex]);
-            }
-
             coinPool = null;
         }
     }
