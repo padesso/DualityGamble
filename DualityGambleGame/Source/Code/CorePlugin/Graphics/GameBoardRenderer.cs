@@ -122,7 +122,18 @@ namespace DualityGambleGame.Graphics
                                 continue;
 
                             //TODO: spread this out so it displays better
-                            tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 10 * tileCoinIndex, -225 + 150 * heightIndex, 0);
+                            if (tileCoinIndex >= 0 && tileCoinIndex < 3)
+                            {
+                                tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 36 * tileCoinIndex, -225 + 150 * heightIndex, 0);
+                            }
+                            else if(tileCoinIndex >= 3 && tileCoinIndex < 6)
+                            {
+                                tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 36 * (tileCoinIndex - 3), (-225 + 150 * heightIndex) + 36, 0);
+                            }
+                            else if(tileCoinIndex >= 6 && tileCoinIndex < 9)
+                            {
+                                tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 36 * (tileCoinIndex - 6), (-225 + 150 * heightIndex) + 72, 0);
+                            }
 
                             tileCoinIndex++;
                         }
