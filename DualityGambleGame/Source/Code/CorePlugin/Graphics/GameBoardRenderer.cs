@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace DualityGambleGame.Graphics
 {
     [RequiredComponent(typeof(Transform))]
-    public class GameBoardRenderer : Component, ICmpInitializable, ICmpRenderer
+    public class GameBoardRenderer : Component, ICmpInitializable, ICmpUpdatable
     {
         //The gameboard to render
         [DontSerialize]
@@ -24,9 +24,15 @@ namespace DualityGambleGame.Graphics
 
         [DontSerialize]
         private ContentRef<Material> tileMat;
-        
+
         [DontSerialize]
-        private GameObject[] coinPool;
+        private ContentRef<Material> coinMat;
+
+        [DontSerialize]
+        private List<GameObject> boardTileList = new List<GameObject>();
+
+        [DontSerialize]
+        private List<GameObject> coinPoolList = new List<GameObject>();
 
         public void OnActivate()
         {
@@ -34,10 +40,13 @@ namespace DualityGambleGame.Graphics
             this.tileMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "tile").FirstOrDefault();
             this.tileMat.EnsureLoaded();
 
+            this.coinMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "coinGold").FirstOrDefault();
+            this.coinMat.EnsureLoaded();
+
             this.transform = GameObj.GetComponent<Transform>();
             this.gameBoardComponent = GameObj.Scene.FindComponent<GameBoardComponent>();
 
-            //Draw the game board
+            //Setup the game board
             for (int widthIndex = 0; widthIndex < this.gameBoardComponent.GameBoard.Width(); widthIndex++)
             {
                 for (int heightIndex = 0; heightIndex < this.gameBoardComponent.GameBoard.Height(); heightIndex++)
@@ -49,57 +58,55 @@ namespace DualityGambleGame.Graphics
 
                     tempTileGameObject.AddComponent(tempTileTransform);
 
-                    SpriteRenderer tempTile = new SpriteRenderer();
-                    tempTile.DepthOffset = 0;
-                    tempTile.SharedMaterial = tileMat;
-                    tempTile.Rect = new Rect(0, 0, 128, 128);
+                    SpriteRenderer tempTileSpriteRenderer = new SpriteRenderer();
+                    tempTileSpriteRenderer.DepthOffset = 0;
+                    tempTileSpriteRenderer.SharedMaterial = tileMat;
+                    tempTileSpriteRenderer.Rect = new Rect(0, 0, 128, 128);
 
-                    tempTileGameObject.AddComponent(tempTile);
+                    tempTileGameObject.AddComponent(tempTileSpriteRenderer);
                     GameObj.Scene.AddObject(tempTileGameObject);
+                    boardTileList.Add(tempTileGameObject);
                 }
             }
-        }
 
-        public void Draw(IDrawDevice device)
-        {
-            //Iterate through the game board and draw the coins
-            for (int widthIndex = 0; widthIndex < this.gameBoardComponent.GameBoard.Width(); widthIndex++)
+            //Create the coin pool - only have 5 non-player tiles currently.  Maybe make this more generic down the road.
+            for(int coinIndex = 0; coinIndex < 5 * this.gameBoardComponent.GameBoard.MaxCoinsPerTile(); coinIndex++)
             {
-                for (int heightIndex = 0; heightIndex < this.gameBoardComponent.GameBoard.Height(); heightIndex++)
-                {
-                    int numCoins = this.gameBoardComponent.GameBoard.GetTile(widthIndex, heightIndex).NumCoins();
+                GameObject tempCoinGameObject = new GameObject("Coin" + coinIndex);
+                Transform tempCoinTransform = new Transform();
+                tempCoinTransform.Pos = new Vector3(-2000, -2000, 0); //Create the coin way off screen
 
-                    for(int coinIndex = 0; coinIndex < numCoins; coinIndex++)
-                    {
-                        //GameObject tempCoinGameObject = new GameObject("Coin" + widthIndex + "_" + heightIndex + "_" + coinIndex);
-                        //Transform tempCoinTransform = new Transform();
-                        ////TODO: make this more flexible/configurable?
-                        //tempCoinTransform.Pos = new Vector3(-225 + (150 * widthIndex) + 5 * coinIndex, -225 + 150 * heightIndex, 0);
+                tempCoinGameObject.AddComponent(tempCoinTransform);
 
-                        //tempCoinGameObject.AddComponent(tempCoinTransform);
+                SpriteRenderer tempCoinSpriteRenderer = new SpriteRenderer();
+                tempCoinSpriteRenderer.DepthOffset = -10;
+                tempCoinSpriteRenderer.SharedMaterial = coinMat;
+                tempCoinSpriteRenderer.Rect = new Rect(0, 0, 64, 64);
 
-                        //SpriteRenderer tempCoin = new SpriteRenderer();
-                        //tempCoin.DepthOffset = -10;
-                        //tempCoin.SharedMaterial = coinMat;
-                        //tempCoin.Rect = new Rect(0, 0, 36, 36);
-
-                        //tempCoinGameObject.AddComponent(tempCoin);
-                        //GameObj.Scene.AddObject(tempCoinGameObject);
-                    }                    
-                }
+                tempCoinGameObject.AddComponent(tempCoinSpriteRenderer);
+                GameObj.Scene.AddObject(tempCoinGameObject);
+                coinPoolList.Add(tempCoinGameObject);
             }
         }
 
-        public void GetCullingInfo(out CullingInfo info)
+        public void OnUpdate()
         {
-            info.Position = this.transform.Pos;
-            info.Radius = 250; //TODO: figure out size with tiles and margins
-            info.Visibility = VisibilityFlag.All;
+            //TODO: draw from the coin pool and put them in the right place
         }
 
         public void OnDeactivate()
         {
-            coinPool = null;
+            //Clean up tiles
+            foreach(var tile in boardTileList)
+            {
+                GameObj.Scene.RemoveObject(tile);
+            }
+
+            //Clean up coins
+            foreach(var coin in coinPoolList)
+            {
+                GameObj.Scene.RemoveObject(coin);
+            }
         }
     }
 }
