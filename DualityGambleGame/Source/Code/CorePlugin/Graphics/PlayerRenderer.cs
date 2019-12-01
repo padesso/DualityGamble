@@ -82,7 +82,7 @@ namespace DualityGambleGame.Graphics
                         break;
                 }
 
-                tempCoinSpriteRenderer.Rect = new Rect(0, 0, 72, 72);
+                tempCoinSpriteRenderer.Rect = new Rect(0, 0, 66, 92);
 
                 player.AddComponent(tempCoinSpriteRenderer);
                 playerList.Add(player);
@@ -102,7 +102,7 @@ namespace DualityGambleGame.Graphics
                     if (tilePlayer == null)
                         continue;
 
-                    playerList[tilePlayer.PlayerNumber() - 1].Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 28, (-225 + 150 * heightIndex) + 28, 0);
+                    playerList[tilePlayer.PlayerNumber() - 1].Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 32, (-225 + 150 * heightIndex) + 14, 0);
                 }
             }
         }
