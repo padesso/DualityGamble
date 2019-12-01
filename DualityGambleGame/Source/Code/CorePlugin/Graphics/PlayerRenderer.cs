@@ -54,7 +54,7 @@ namespace DualityGambleGame.Graphics
             //Create the players off screen
             for (int playerNumber = 1; playerNumber <= 4; playerNumber++)
             {
-                GameObject player = new GameObject("Player" + playerNumber);
+                GameObject player = new GameObject("Player" + playerNumber);               
                 Transform playerTransform = new Transform();
                 playerTransform.Pos = new Vector3(-2000, -2000, 0); //Create the coin way off screen
 

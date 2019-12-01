@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace DualityGambleGame.Graphics
 {
     [RequiredComponent(typeof(Transform))]
-    public class GameBoardRenderer : Component, ICmpInitializable, ICmpUpdatable
+    public class GameBoardRenderer : Component, ICmpInitializable, ICmpRenderer
     {
         //The gameboard to render
         [DontSerialize]
@@ -90,7 +90,22 @@ namespace DualityGambleGame.Graphics
             }   
         }
 
-        public void OnUpdate()
+        private void ResetCoinPool()
+        {
+            foreach (var coin in coinPoolList)
+            {
+                coin.Transform.Pos = new Vector3(-2000, -2000, 0); //Create the coin way off screen
+            }
+        }
+
+        public void GetCullingInfo(out CullingInfo info)
+        {
+            info.Position = this.transform.Pos;
+            info.Radius = 250; //TODO: figure out size with tiles and margins
+            info.Visibility = VisibilityFlag.All;
+        }
+
+        public void Draw(IDrawDevice device)
         {
             if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
             {
@@ -127,11 +142,11 @@ namespace DualityGambleGame.Graphics
                             {
                                 tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 36 * tileCoinIndex, -225 + 150 * heightIndex, 0);
                             }
-                            else if(tileCoinIndex >= 3 && tileCoinIndex < 6)
+                            else if (tileCoinIndex >= 3 && tileCoinIndex < 6)
                             {
                                 tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 36 * (tileCoinIndex - 3), (-225 + 150 * heightIndex) + 36, 0);
                             }
-                            else if(tileCoinIndex >= 6 && tileCoinIndex < 9)
+                            else if (tileCoinIndex >= 6 && tileCoinIndex < 9)
                             {
                                 tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 36 * (tileCoinIndex - 6), (-225 + 150 * heightIndex) + 72, 0);
                             }
@@ -145,24 +160,16 @@ namespace DualityGambleGame.Graphics
             }
         }
 
-        private void ResetCoinPool()
-        {
-            foreach (var coin in coinPoolList)
-            {
-                coin.Transform.Pos = new Vector3(-2000, -2000, 0); //Create the coin way off screen
-            }
-        }
-
         public void OnDeactivate()
         {
             //Clean up tiles
-            foreach(var tile in boardTileList)
+            foreach (var tile in boardTileList)
             {
                 GameObj.Scene.RemoveObject(tile);
             }
 
             //Clean up coins
-            foreach(var coin in coinPoolList)
+            foreach (var coin in coinPoolList)
             {
                 GameObj.Scene.RemoveObject(coin);
             }
