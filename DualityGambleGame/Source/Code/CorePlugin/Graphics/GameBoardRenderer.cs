@@ -121,7 +121,8 @@ namespace DualityGambleGame.Graphics
                             if (tileCoinIndex >= numTileCoins)
                                 continue;
 
-                            //TODO: spread this out so it displays better
+                            //Spread this out so it displays better
+                            //TODO: draw like a dice
                             if (tileCoinIndex >= 0 && tileCoinIndex < 3)
                             {
                                 tileCoin.Transform.Pos = new Vector3((-225 + 150 * widthIndex) + 36 * tileCoinIndex, -225 + 150 * heightIndex, 0);
