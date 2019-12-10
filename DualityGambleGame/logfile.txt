@@ -102,15 +102,16 @@
 [Core] Msg: Initializing IAudioBackend...
 [Core] Msg:   OpenAL (OpenTK)...
 [Core] Msg:     OpenAL Drivers not found. Using 64 Bit software fallback.
+[Core] Msg:     Assembly loaded: System.Configuration 4.0.0.0
 [Core] Msg:     Available devices:
-                  Headphones (Realtek High Definition Audio(SST)) (Default)
-                  Speakers (Realtek High Definition Audio(SST))
-[Core] Msg:     Current device: OpenAL Soft
-[Core] Msg:     OpenAL Version: 1.1 ALSOFT 1.15.1
-                Vendor: OpenAL Community
-                Renderer: OpenAL Soft
-                Effects: True
-[Core] Msg:     256 sources available
+[Core] ERR:     Failed: DllNotFoundException: openal32.dll
+                CallStack:
+                   at OpenTK.Audio.AudioContext.CreateContext(String device, Int32 freq, Int32 refresh, Boolean sync, Boolean enableEfx, MaxAuxiliarySends efxAuxiliarySends)
+                   at OpenTK.Audio.AudioContext..ctor()
+                   at Duality.Backend.DefaultOpenTK.AudioBackend.Duality.Backend.IDualityBackend.Init() in C:\Dev\duality\Source\Platform\DefaultOpenTK\Backend\Audio\AudioBackend.cs:line 80
+                   at Duality.DualityApp.InitBackend[T](T& target, Func`2 typeFinder) in C:\Dev\duality\Source\Core\Duality\DualityApp.cs:line 845
+[Core] Msg:   No Audio...
+[Core] Wrn:     DummyAudioBackend initialized. This is unusual and may cause problems when someone tries to play audio.
 [Core] Msg: Initializing core plugins...
 [Core] Msg:   Compatibility.core...
 [Core] Msg:   DefaultOpenTKBackend.core...
@@ -146,50 +147,4 @@
 [Core] Msg:   ...done!
 [Core] Msg: Assembly loaded: DualityPhysics 3.0.4.0
 [Core] Msg: Loading Resource 'Data\Scene.Scene.res'
-[Core] Msg: Assembly loaded: System.Configuration 4.0.0.0
-[Core] Msg: Loading Resource 'Data\Board\tile.Material.res'
-[Core] Msg:   Loading Resource 'Data\Board\tile.Texture.res'
-[Core] Msg:     Loading Resource 'Data\Board\tile.Pixmap.res'
-[Core] Msg: Loading Resource 'Data\Board\coinGold.Material.res'
-[Core] Msg:   Loading Resource 'Data\Board\coinGold.Texture.res'
-[Core] Msg:     Loading Resource 'Data\Board\coinGold.Pixmap.res'
-[Core] Msg: Loading Resource 'Data\Players\alienPink.Material.res'
-[Core] Msg:   Loading Resource 'Data\Players\alienPink.Texture.res'
-[Core] Msg:     Loading Resource 'Data\Players\alienPink.Pixmap.res'
-[Core] Msg: Loading Resource 'Data\Players\alienGreen.Material.res'
-[Core] Msg:   Loading Resource 'Data\Players\alienGreen.Texture.res'
-[Core] Msg:     Loading Resource 'Data\Players\alienGreen.Pixmap.res'
-[Core] Msg: Loading Resource 'Data\Players\alienBeige.Material.res'
-[Core] Msg:   Loading Resource 'Data\Players\alienBeige.Texture.res'
-[Core] Msg:     Loading Resource 'Data\Players\alienBeige.Pixmap.res'
-[Core] Msg: Loading Resource 'Data\Players\alienYellow.Material.res'
-[Core] Msg:   Loading Resource 'Data\Players\alienYellow.Texture.res'
-[Core] Msg:     Loading Resource 'Data\Players\alienYellow.Pixmap.res'
-[Core] Msg: Determining OpenGL rendering capabilities...
-[Core] Msg: Loading Resource 'Data\Audio\Music\BackgroundMusic.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\Music\BackgroundMusic.AudioData.res'
-[Core] Msg: Loading Resource 'Data\Audio\SFX\bump.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\SFX\bump.AudioData.res'
-[Core] Msg: Loading Resource 'Data\Audio\SFX\NoCoins.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\SFX\NoCoins.AudioData.res'
-[Core] Msg: Loading Resource 'Data\Audio\SFX\GetCoins.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\SFX\GetCoins.AudioData.res'
-[Core] Msg: Loading Resource 'Data\Background\bg_grasslands.Material.res'
-[Core] Msg:   Loading Resource 'Data\Background\bg_grasslands.Texture.res'
-[Core] Msg:     Loading Resource 'Data\Background\bg_grasslands.Pixmap.res'
-[Core] Msg: Compiling DrawTechnique 'Default\DrawTechnique\Mask'...
-[Core] Msg:   Compiling Vertex shader 'Default\VertexShader\Minimal'...
-[Core] Msg:   Compiling Fragment shader 'Default\FragmentShader\Minimal'...
-[Core] Msg: Compiling DrawTechnique 'Default\DrawTechnique\Alpha'...
-[Core] Msg: Loading Resource 'Data\Audio\Music\BackgroundMusic.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\Music\BackgroundMusic.AudioData.res'
-[Core] Msg: Loading Resource 'Data\Audio\SFX\bump.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\SFX\bump.AudioData.res'
-[Core] Msg: Loading Resource 'Data\Audio\SFX\NoCoins.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\SFX\NoCoins.AudioData.res'
-[Core] Msg: Loading Resource 'Data\Audio\SFX\GetCoins.Sound.res'
-[Core] Msg:   Loading Resource 'Data\Audio\SFX\GetCoins.AudioData.res'
-[Core] Msg: Shutting down OpenGL 2.1 (OpenTK)...
-[Core] Msg: Shutting down OpenAL (OpenTK)...
-[Core] Msg: Shutting down .Net Framework...
-[Core] Msg: DualityApp terminated
+[Core] Msg: Assembly loaded: Microsoft.VisualStudio.Debugger.Runtime 15.0.0.0

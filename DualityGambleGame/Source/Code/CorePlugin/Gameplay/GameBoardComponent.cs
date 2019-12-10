@@ -29,6 +29,9 @@ namespace DualityGambleGame.Gameplay
         [DontSerialize]
         private TextRenderer debugTextRenderer;
 
+        [DontSerialize]
+        private SoundEmitter sfxEmitter;
+
         private Transform transform;
 
         private bool debugMode;
@@ -36,6 +39,7 @@ namespace DualityGambleGame.Gameplay
         public void OnActivate()
         {
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
+            this.sfxEmitter = GameObj.Scene.FindComponents<SoundEmitter>().Where(e => e.GameObj.Name == "SoundEffects").FirstOrDefault();
             this.transform = GameObj.GetComponent<Transform>();
 
             this.GameBoard = new GameBoard();
