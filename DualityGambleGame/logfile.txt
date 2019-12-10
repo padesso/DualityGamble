@@ -146,6 +146,12 @@
 [Core] Msg:   ...done!
 [Core] Msg: Assembly loaded: DualityPhysics 3.0.4.0
 [Core] Msg: Loading Resource 'Data\Scene.Scene.res'
+[Core] Msg: Loading Resource 'Data\Audio\SFX\bump.Sound.Res'
+[Core] Msg:   Loading Resource 'Data\Audio\SFX\bump.AudioData.res'
+[Core] Msg: Loading Resource 'Data\Audio\SFX\GetCoins.Sound.Res'
+[Core] Msg:   Loading Resource 'Data\Audio\SFX\GetCoins.AudioData.res'
+[Core] Msg: Loading Resource 'Data\Audio\SFX\NoCoins.Sound.Res'
+[Core] Msg:   Loading Resource 'Data\Audio\SFX\NoCoins.AudioData.res'
 [Core] Msg: Loading Resource 'Data\Audio\Music\BackgroundMusic.Sound.Res'
 [Core] Msg:   Loading Resource 'Data\Audio\Music\BackgroundMusic.AudioData.res'
 [Core] Msg: Assembly loaded: System.Configuration 4.0.0.0
@@ -175,8 +181,8 @@
 [Core] Msg:   Compiling Vertex shader 'Default\VertexShader\Minimal'...
 [Core] Msg:   Compiling Fragment shader 'Default\FragmentShader\Minimal'...
 [Core] Msg: Compiling DrawTechnique 'Default\DrawTechnique\Alpha'...
-[Core] Msg: Loading Resource 'Data\Audio\Music\BackgroundMusic.AudioData.res'
 [Core] Msg: Loading Resource 'Data\Audio\Music\BackgroundMusic.Sound.Res'
+[Core] Msg:   Loading Resource 'Data\Audio\Music\BackgroundMusic.AudioData.res'
 [Core] Msg: Shutting down OpenGL 2.1 (OpenTK)...
 [Core] Msg: Shutting down OpenAL (OpenTK)...
 [Core] Msg: Shutting down .Net Framework...

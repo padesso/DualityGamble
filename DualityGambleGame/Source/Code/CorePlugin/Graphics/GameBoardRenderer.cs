@@ -110,6 +110,9 @@ namespace DualityGambleGame.Graphics
 
         public void Draw(IDrawDevice device)
         {
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
+
             if (StateMachine.CurrentState == StateMachine.GameState.PlayAgain)
             {
                 ResetCoinPool();

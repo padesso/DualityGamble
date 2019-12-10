@@ -9,6 +9,7 @@ using Duality.Components.Renderers;
 using Duality.Drawing;
 using Duality.Resources;
 using DualityGambleGame.AI;
+using DualityGambleGame.Audio;
 using DualityGambleGame.State;
 using static Duality.Drawing.FormattedText;
 
@@ -29,6 +30,9 @@ namespace DualityGambleGame.Gameplay
         [DontSerialize]
         private TextRenderer debugTextRenderer;
 
+        [DontSerialize]
+        private GameAudioComponent gameAudioComponent;
+
         private Transform transform;
 
         private bool debugMode;
@@ -39,6 +43,7 @@ namespace DualityGambleGame.Gameplay
                 return;
 
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
+            gameAudioComponent = GameObj.Scene.FindComponent<GameAudioComponent>();
             this.transform = GameObj.GetComponent<Transform>();
 
             this.GameBoard = new GameBoard();
@@ -55,6 +60,9 @@ namespace DualityGambleGame.Gameplay
 
         public void OnUpdate()
         {
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
+
             //Input
             if (StateMachine.CurrentState == StateMachine.GameState.WaitingPlayerInput)
             {
@@ -68,7 +76,7 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play bump sound                      
+                        gameAudioComponent.PlaySFX(GameAudioComponent.SFX.Bump);
                     }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
@@ -79,7 +87,7 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play bump sound
+                        gameAudioComponent.PlaySFX(GameAudioComponent.SFX.Bump);
                     }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
@@ -90,7 +98,7 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play bump sound
+                        gameAudioComponent.PlaySFX(GameAudioComponent.SFX.Bump);
                     }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
@@ -101,13 +109,13 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play bump sound
+                        gameAudioComponent.PlaySFX(GameAudioComponent.SFX.Bump);
                     }
                 }
             }
             else if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
             {
-                //TODO: compare moves
+                //Compare moves
                 GameTile playerOneSelectedeTile = this.GameBoard.GetPlayerMove(1);
                 GameTile playerTwoSelectedTile = this.GameBoard.GetPlayerMove(2);
                 GameTile playerThreeSelectedTile = this.GameBoard.GetPlayerMove(3);
@@ -166,6 +174,12 @@ namespace DualityGambleGame.Gameplay
                 {
                     this.GameBoard.GetPlayer(1).AddCoins(playerOneSelectedeTile.NumCoins());
                     Debug.WriteLine("player 1 score: " + playerOneSelectedeTile.NumCoins().ToString());
+
+                    gameAudioComponent.PlaySFX(GameAudioComponent.SFX.Coins);
+                }
+                else
+                {
+                    gameAudioComponent.PlaySFX(GameAudioComponent.SFX.NoCoins);
                 }
 
                 if (playerTwoScores)
@@ -208,9 +222,8 @@ namespace DualityGambleGame.Gameplay
 
         public void Draw(IDrawDevice device)
         {
-            //Draw the game board...  
-            //Vector2 screenCenter = this.ca
-
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
 
             //debug for now
             if (DebugMode)

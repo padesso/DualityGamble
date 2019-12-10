@@ -95,6 +95,9 @@ namespace DualityGambleGame.Graphics
 
         public void Draw(IDrawDevice device)
         {
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
+
             //Draw the aliens on the player tiles
             for (int widthIndex = 0; widthIndex < this.gameBoardComponent.GameBoard.Width(); widthIndex++)
             {
