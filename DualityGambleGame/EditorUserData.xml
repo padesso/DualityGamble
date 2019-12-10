@@ -32,7 +32,12 @@
               <X>1280</X>
               <Y>1024</Y>
             </RenderSize>
-            <RecentRenderSizes />
+            <RecentRenderSizes>
+              <RenderSize>
+                <X>1280</X>
+                <Y>1024</Y>
+              </RenderSize>
+            </RecentRenderSizes>
           </State>
           <State type="Duality.Editor.Plugins.CamView.CamViewStates.RigidBodyEditorCamViewState">
             <ActiveLayers>
@@ -95,12 +100,19 @@
             <NodeID>PropertiesDuality.Resources.Texture/TextureDuality.Resources.Texture/</NodeID>
             <NodeID>PropertiesDuality.Resources.Texture/TextureDuality.Resources.Texture/TextureDuality.Resources.Texture/</NodeID>
             <NodeID>PropertiesDuality.GameObject/CameraDuality.Components.Camera/</NodeID>
+            <NodeID>PropertiesDuality.Resources.Prefab/PrefabDuality.Resources.Prefab/</NodeID>
+            <NodeID>PropertiesDuality.Resources.AudioData/AudioDataDuality.Resources.AudioData/</NodeID>
+            <NodeID>PropertiesDuality.Resources.AudioData/AudioDataDuality.Resources.AudioData/AudioDataDuality.Resources.AudioData/</NodeID>
+            <NodeID>PropertiesDuality.Resources.AudioData/Import / Export SettingsDuality.Resources.AudioData/</NodeID>
+            <NodeID>PropertiesDuality.GameObject/VelocityTrackerDuality.Components.VelocityTracker/</NodeID>
+            <NodeID>PropertiesDuality.GameObject/SoundEmitterDuality.Components.SoundEmitter/</NodeID>
+            <NodeID>PropertiesDuality.GameObject/SoundEmitterDuality.Components.SoundEmitter/Sources[0]Duality.Components.SoundEmitter+Source/</NodeID>
           </ExpandedNodes>
         </ExpandState>
       </ObjectInspector>
     </Plugin>
     <Plugin id="ProjectView">
-      <ImportSourcePath>C:\Users\padesso\Desktop\Personal\Duality\Platformer Art Complete Pack\Mushroom expansion\Backgrounds</ImportSourcePath>
+      <ImportSourcePath>C:\Users\padesso\Desktop\Personal\Duality\Platformer Art Complete Pack\Base pack\HUD</ImportSourcePath>
     </Plugin>
     <Plugin id="SceneView">
       <SceneView>
@@ -113,7 +125,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--DockPanel configuration file. Author: Weifen Luo, all rights reserved.-->
 <!--!!! AUTOMATICALLY GENERATED FILE. DO NOT MODIFY !!!-->
-<DockPanel FormatVersion="1.0" DockLeftPortion="0.25" DockRightPortion="0.440885416666667" DockTopPortion="0.25" DockBottomPortion="0.25" ActiveDocumentPane="7" ActivePane="7">
+<DockPanel FormatVersion="1.0" DockLeftPortion="0.25" DockRightPortion="0.440885416666667" DockTopPortion="0.25" DockBottomPortion="0.25" ActiveDocumentPane="7" ActivePane="0">
   <Contents Count="6">
     <Content ID="0" PersistString="Duality.Editor.Plugins.CamView.CamView" AutoHidePortion="0.25" IsHidden="False" IsFloat="False" />
     <Content ID="1" PersistString="Duality.Editor.Plugins.ProjectView.ProjectFolderView" AutoHidePortion="0.440885416666667" IsHidden="False" IsFloat="False" />

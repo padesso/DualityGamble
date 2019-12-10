@@ -153,8 +153,6 @@ namespace DualityGambleGame.Graphics
 
                             tileCoinIndex++;
                         }
-
-                        Debug.WriteLine("Wait");
                     }
                 }
             }

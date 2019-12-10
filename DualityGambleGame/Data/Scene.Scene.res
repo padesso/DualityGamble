@@ -773,7 +773,7 @@
         <body />
       </identifier>
       <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-      <name dataType="String">SoundEmitter</name>
+      <name dataType="String">BackgroundMusic</name>
       <parent />
       <prefabLink />
     </item>
