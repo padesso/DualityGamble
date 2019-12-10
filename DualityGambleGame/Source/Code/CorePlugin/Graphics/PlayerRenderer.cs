@@ -36,6 +36,9 @@ namespace DualityGambleGame.Graphics
         
         public void OnActivate()
         {
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
+
             this.gameBoardComponent = GameObj.Scene.FindComponent<GameBoardComponent>();
             this.transform = GameObj.GetComponent<Transform>();
 

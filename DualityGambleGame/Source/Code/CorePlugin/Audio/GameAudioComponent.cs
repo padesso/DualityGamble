@@ -16,10 +16,11 @@ namespace DualityGambleGame.Audio
 
         public void OnActivate()
         {
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
+
             //TODO: load up the music and SFX and fade music in
 
-            //TODO: don't do this in the editor...
-            //if(DualityApp.)
             StartBackgroundMusic();
         }
 

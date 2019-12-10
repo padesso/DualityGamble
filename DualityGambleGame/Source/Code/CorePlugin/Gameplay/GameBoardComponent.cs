@@ -35,6 +35,9 @@ namespace DualityGambleGame.Gameplay
 
         public void OnActivate()
         {
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
+
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
             this.transform = GameObj.GetComponent<Transform>();
 

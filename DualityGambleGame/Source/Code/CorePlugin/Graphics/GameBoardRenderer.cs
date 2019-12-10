@@ -37,6 +37,9 @@ namespace DualityGambleGame.Graphics
 
         public void OnActivate()
         {
+            if (DualityApp.ExecEnvironment == DualityApp.ExecutionEnvironment.Editor)
+                return;
+
             //Preload the game assets
             this.tileMat = ContentProvider.GetAvailableContent<Material>().Where(c => c.Name == "tile").FirstOrDefault();
             this.tileMat.EnsureLoaded();
