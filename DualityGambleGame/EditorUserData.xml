@@ -25,7 +25,7 @@
           <Y>0</Y>
           <Z>0</Z>
         </SnapToGridSize>
-        <ActiveState>Duality.Editor.Plugins.CamView.CamViewStates.GameViewCamViewState</ActiveState>
+        <ActiveState>Duality.Editor.Plugins.CamView.CamViewStates.SceneEditorCamViewState</ActiveState>
         <States>
           <State type="Duality.Editor.Plugins.CamView.CamViewStates.GameViewCamViewState">
             <RenderSize>
@@ -107,12 +107,15 @@
             <NodeID>PropertiesDuality.GameObject/VelocityTrackerDuality.Components.VelocityTracker/</NodeID>
             <NodeID>PropertiesDuality.GameObject/SoundEmitterDuality.Components.SoundEmitter/</NodeID>
             <NodeID>PropertiesDuality.GameObject/SoundEmitterDuality.Components.SoundEmitter/Sources[0]Duality.Components.SoundEmitter+Source/</NodeID>
+            <NodeID>PropertiesDuality.GameObject/SoundEmitterDuality.Components.SoundEmitter/Sources[1]Duality.Components.SoundEmitter+Source/</NodeID>
+            <NodeID>PropertiesDuality.GameObject/SoundEmitterDuality.Components.SoundEmitter/Sources[2]Duality.Components.SoundEmitter+Source/</NodeID>
+            <NodeID>PropertiesDuality.Resources.Sound/SoundDuality.Resources.Sound/</NodeID>
           </ExpandedNodes>
         </ExpandState>
       </ObjectInspector>
     </Plugin>
     <Plugin id="ProjectView">
-      <ImportSourcePath>C:\Users\padesso\Desktop\Personal\Duality\Platformer Art Complete Pack\Base pack\HUD</ImportSourcePath>
+      <ImportSourcePath>C:\Dev\DualityGamble\AssetSource\SFX</ImportSourcePath>
     </Plugin>
     <Plugin id="SceneView">
       <SceneView>
