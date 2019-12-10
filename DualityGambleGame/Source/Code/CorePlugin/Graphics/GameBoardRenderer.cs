@@ -107,10 +107,6 @@ namespace DualityGambleGame.Graphics
 
         public void Draw(IDrawDevice device)
         {
-            if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
-            {
-
-            }
             if (StateMachine.CurrentState == StateMachine.GameState.PlayAgain)
             {
                 ResetCoinPool();

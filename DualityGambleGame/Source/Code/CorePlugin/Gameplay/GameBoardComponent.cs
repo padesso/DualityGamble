@@ -60,22 +60,46 @@ namespace DualityGambleGame.Gameplay
                 if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Left))
                 {
                     if (this.GameBoard.TryMove(new Vector2(-1, 0), 1))
+                    {
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
+                    }
+                    else
+                    {
+                        //TODO: play error sound
+                    }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
                 {
                     if (this.GameBoard.TryMove(new Vector2(1, 0), 1))
+                    {
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
+                    }
+                    else
+                    {
+                        //TODO: play error sound
+                    }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
                 {
                     if (this.GameBoard.TryMove(new Vector2(0, 1), 1))
+                    {
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
+                    }
+                    else
+                    {
+                        //TODO: play error sound
+                    }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
                 {
                     if (this.GameBoard.TryMove(new Vector2(0, -1), 1))
+                    {
                         StateMachine.SetGameState(StateMachine.GameState.ShowResults);
+                    }
+                    else
+                    {
+                        //TODO: play error sound
+                    }
                 }
             }
             else if (StateMachine.CurrentState == StateMachine.GameState.ShowResults)
