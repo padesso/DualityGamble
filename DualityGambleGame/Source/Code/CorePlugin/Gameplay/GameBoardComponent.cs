@@ -29,9 +29,6 @@ namespace DualityGambleGame.Gameplay
         [DontSerialize]
         private TextRenderer debugTextRenderer;
 
-        [DontSerialize]
-        private SoundEmitter sfxEmitter;
-
         private Transform transform;
 
         private bool debugMode;
@@ -39,7 +36,6 @@ namespace DualityGambleGame.Gameplay
         public void OnActivate()
         {
             this.debugTextRenderer = GameObj.Scene.FindComponent<TextRenderer>();
-            this.sfxEmitter = GameObj.Scene.FindComponents<SoundEmitter>().Where(e => e.GameObj.Name == "SoundEffects").FirstOrDefault();
             this.transform = GameObj.GetComponent<Transform>();
 
             this.GameBoard = new GameBoard();
@@ -69,7 +65,7 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play error sound
+                        //TODO: play bump sound                      
                     }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Right))
@@ -80,7 +76,7 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play error sound
+                        //TODO: play bump sound
                     }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Down))
@@ -91,7 +87,7 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play error sound
+                        //TODO: play bump sound
                     }
                 }
                 else if (DualityApp.Keyboard.KeyReleased(Duality.Input.Key.Up))
@@ -102,7 +98,7 @@ namespace DualityGambleGame.Gameplay
                     }
                     else
                     {
-                        //TODO: play error sound
+                        //TODO: play bump sound
                     }
                 }
             }

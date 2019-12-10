@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\GameAI.cs" />
+    <Compile Include="Audio\GameAudioComponent.cs" />
     <Compile Include="CorePlugin.cs" />
     <Compile Include="Gameplay\GameBoard.cs" />
     <Compile Include="Gameplay\GameBoardComponent.cs" />
